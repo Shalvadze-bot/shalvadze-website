@@ -9,22 +9,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20260812">
 </head>
 
-<body>
+<body id="top">
 
  <header>
 
     <div class="logo">
-        <img src="images/SHALVADZE_Primary_Black.svg" alt="SHALVADZE">
+        <a href="#top" aria-label="SHALVADZE home">
+            <img src="images/SHALVADZE_Primary_Black.svg" alt="SHALVADZE">
+        </a>
     </div>
 
     <div class="header-right">
 
-        <nav>
+        <nav aria-label="Primary navigation">
 
-            <div class="nav-links">
+            <div class="nav-links" id="primary-navigation">
 
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
@@ -33,26 +35,22 @@
 
             </div>
 
-            <div class="hamburger">
+            <button class="hamburger"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-controls="primary-navigation"
+                    aria-expanded="false">
 
                 <span></span>
                 <span></span>
                 <span></span>
 
-            </div>
+            </button>
 
         </nav>
 
-        <div class="language-selector">
-
-            <button class="language-button">🇬🇧 EN ▾</button>
-
-            <div class="language-menu">
-                <a href="#">🇬🇧 English</a>
-                <a href="#">🇹🇷 Türkçe</a>
-                <a href="#">🇨🇳 中文</a>
-            </div>
-
+        <div class="language-selector" title="English">
+            <span class="language-current"><span aria-hidden="true">🇬🇧</span> EN</span>
         </div>
 
     </div>
@@ -198,35 +196,35 @@
 
     <div class="product-list">
 
-        <a href="#" class="product-item">
+        <div class="product-item">
             <span>01</span>
             <strong>Textiles</strong>
-            <span class="arrow">→</span>
-        </a>
+            <span class="arrow" aria-hidden="true">→</span>
+        </div>
 
-        <a href="#" class="product-item">
+        <div class="product-item">
             <span>02</span>
             <strong>Jewellery</strong>
-            <span class="arrow">→</span>
-        </a>
+            <span class="arrow" aria-hidden="true">→</span>
+        </div>
 
-        <a href="#" class="product-item">
+        <div class="product-item">
             <span>03</span>
             <strong>Toys</strong>
-            <span class="arrow">→</span>
-        </a>
+            <span class="arrow" aria-hidden="true">→</span>
+        </div>
 
-        <a href="#" class="product-item">
+        <div class="product-item">
             <span>04</span>
             <strong>Stationery</strong>
-            <span class="arrow">→</span>
-        </a>
+            <span class="arrow" aria-hidden="true">→</span>
+        </div>
 
-        <a href="#" class="product-item">
+        <div class="product-item">
             <span>05</span>
             <strong>Office Products</strong>
-            <span class="arrow">→</span>
-        </a>
+            <span class="arrow" aria-hidden="true">→</span>
+        </div>
 
     </div>
 
@@ -329,7 +327,7 @@
                 © 2026 SHALVADZE • Hong Kong
             </div>
 
-            <nav class="footer-nav">
+            <nav class="footer-nav" aria-label="Footer navigation">
 
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
@@ -344,7 +342,15 @@
 
 </footer>
 
-<script src="js/script.js"></script>
+<button class="back-to-top"
+        type="button"
+        aria-label="Back to top"
+        aria-hidden="true"
+        tabindex="-1">
+    <span aria-hidden="true">↑</span>
+</button>
+
+<script src="js/script.js?v=20260812"></script>
 
 </body>
 
