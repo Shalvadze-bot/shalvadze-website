@@ -31,8 +31,8 @@ header {
     margin-left: clamp(30px, 7vw, 120px);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: flex-end;
+    gap: clamp(36px, 3.5vw, 50px);
 }
 
 
@@ -46,7 +46,7 @@ header {
 }
 
 .logo img {
-    width: 300px;
+    width: 250px;
     height: auto;
     display: block;
 }
@@ -59,7 +59,7 @@ nav {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: clamp(32px, 4.5vw, 70px);
+    gap: 32px;
 }
 
 .nav-links a {
@@ -129,10 +129,10 @@ nav {
     isolation: isolate;
     display: flex;
     align-items: center;
-    min-height: clamp(620px, calc(100svh - 100px), 760px);
+    min-height: clamp(540px, calc(100svh - 100px), 650px);
     max-width: none;
     margin: 100px 0 0;
-    padding: 72px 7%;
+    padding: 56px 4%;
     overflow: hidden;
     color: #fff;
     background:
@@ -148,20 +148,27 @@ nav {
     z-index: -1;
     background: linear-gradient(
         90deg,
-        rgba(0, 0, 0, 0.84) 0%,
-        rgba(0, 0, 0, 0.60) 34%,
-        rgba(0, 0, 0, 0.16) 66%,
-        rgba(0, 0, 0, 0.18) 100%
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.80) 32%,
+        rgba(0, 0, 0, 0.42) 57%,
+        rgba(0, 0, 0, 0.08) 78%,
+        rgba(0, 0, 0, 0.06) 100%
     );
 }
 
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1180px);
+    margin: 0 auto;
+}
+
 .hero h1 {
-    max-width: 720px;
-    margin: 24px 0 22px;
-    font-size: clamp(50px, 5.3vw, 78px);
-    line-height: 0.98;
-    letter-spacing: -0.035em;
-    text-transform: uppercase;
+    max-width: 620px;
+    margin: 18px 0 20px;
+    font-size: clamp(44px, 4.45vw, 64px);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
 }
 
 .hero p {
@@ -169,9 +176,10 @@ nav {
 }
 
 .hero-text {
+    max-width: 510px;
     margin: 0;
-    font-size: 18px;
-    line-height: 1.65;
+    font-size: 17px;
+    line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -186,7 +194,7 @@ nav {
 .hero .eyebrow {
     margin: 0;
     color: #fff;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
 }
 
 .button {
@@ -194,8 +202,8 @@ nav {
     align-items: center;
     justify-content: center;
     min-width: 190px;
-    margin-top: 28px;
-    padding: 17px 28px;
+    margin-top: 26px;
+    padding: 16px 28px;
     border: 1px solid #fff;
     background: transparent;
     color: #fff;
@@ -638,11 +646,15 @@ textarea{
     }
 
     .logo img {
-        width: 220px;
+        width: 200px;
+        margin-block: 2.5px;
     }
 
     .header-right {
+        flex: 0 0 auto;
+        margin-left: auto;
         flex-direction: row-reverse;
+        justify-content: flex-start;
         gap: 14px;
     }
 
@@ -677,10 +689,23 @@ textarea{
     }
 
     .hero {
-        min-height: 660px;
+        min-height: clamp(540px, calc(100svh - 82px), 620px);
         margin-top: 82px;
-        padding: 72px 6%;
-        background-position: 55% center;
+        padding: 56px 6%;
+        background-position: 58% center;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        max-width: 560px;
+        font-size: clamp(42px, 6vw, 58px);
+    }
+
+    .hero-text {
+        max-width: 480px;
     }
 
     #about,
@@ -732,35 +757,42 @@ textarea{
     }
 
     .logo img {
-        width: 190px;
+        width: 170px;
     }
 
     .hero {
-        align-items: flex-end;
-        min-height: calc(100svh - 76px);
+        align-items: center;
+        min-height: min(620px, calc(100svh - 76px));
         margin-top: 76px;
-        padding: 72px 6% 64px;
-        background-position: 61% center;
+        padding: 52px 6%;
+        background-position: 65% center;
     }
 
     .hero::before {
-        background:
-            linear-gradient(90deg, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.48)),
-            linear-gradient(0deg, rgba(0, 0, 0, 0.76) 0%, transparent 60%);
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.94) 0%,
+            rgba(0, 0, 0, 0.82) 54%,
+            rgba(0, 0, 0, 0.42) 100%
+        );
     }
 
     .hero h1 {
-        margin-top: 18px;
-        font-size: clamp(40px, 12vw, 58px);
+        max-width: 350px;
+        margin: 16px 0 18px;
+        font-size: clamp(38px, 10.5vw, 48px);
+        line-height: 1.04;
     }
 
     .hero-text {
+        max-width: 350px;
         font-size: 16px;
         line-height: 1.55;
     }
 
     .button {
         min-width: 176px;
+        margin-top: 24px;
         padding: 15px 22px;
     }
 
