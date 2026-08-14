@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
 
-<g transform="translate(40 40) scale(1.55)" fill="none" stroke="#111111" stroke-width="8" stroke-linejoin="miter">
-<path d="M20 8 L48 24 L48 42 L39 47 L39 30 L20 19 L11 24 L11 14 Z"/>
-<path d="M52 56 L24 40 L24 22 L33 17 L33 34 L52 45 L61 40 L61 50 Z"/>
+<g transform="translate(22.5 22.5) scale(1.55)" fill="none" stroke="#111111" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter">
+<path d="M82 34V22L50 4 18 22V48L50 66 61 59"/>
+<path d="M18 66V79L50 97 82 79V53L50 35 39 41"/>
 </g>
 </svg>

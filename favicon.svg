@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="40 40 304 304">
     <rect x="40" y="40" width="304" height="304" fill="#ffffff"/>
-    <g fill="none" stroke="#111111" stroke-width="27" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4">
-        <path d="M132 78 L252 147 L252 216 L216 237 L216 168 L132 120 L96 141 L96 102 Z"/>
-        <path d="M252 306 L132 237 L132 168 L168 147 L168 216 L252 264 L288 243 L288 282 Z"/>
+    <g transform="translate(62 62) scale(2.6)" fill="none" stroke="#111111" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter" stroke-miterlimit="4">
+        <path d="M82 34V22L50 4 18 22V48L50 66 61 59"/>
+        <path d="M18 66V79L50 97 82 79V53L50 35 39 41"/>
     </g>
 </svg>
