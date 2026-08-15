@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=20260815-footer-legal-alignment">
+    <link rel="stylesheet" href="css/style.css?v=20260816-desktop-contact-review">
 </head>
 
 <body id="top">
@@ -243,15 +243,140 @@
 
     <div class="contact-container">
 
-        <p class="section-label">CONTACT</p>
+        <div class="contact-desktop" aria-labelledby="contact-desktop-title">
 
-        <h2>Request a Quote</h2>
+            <div class="contact-desktop-header">
+                <p class="contact-desktop-label">CONTACT</p>
+                <h2 class="contact-desktop-title" id="contact-desktop-title">SAY HI</h2>
+                <p class="contact-desktop-intro">
+                    Let’s get to know each other. Tell us what you’re looking for and we’ll figure out the best way to help.
+                </p>
+            </div>
 
-        <p class="contact-intro">
+            <div class="contact-options">
+
+                <article class="contact-option-card">
+                    <div class="contact-option-icon contact-option-icon--dark" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M20 11.5c0 4.14-3.58 7.5-8 7.5-1.12 0-2.18-.22-3.14-.6L4 21l1.35-4.05A7.18 7.18 0 0 1 4 11.5C4 7.36 7.58 4 12 4s8 3.36 8 7.5Z"/>
+                        </svg>
+                    </div>
+                    <h3>CHAT WITH US</h3>
+                    <p class="contact-option-description">
+                        Quick questions? Want to sound out an idea? Drop us a message and we’ll reply within a few hours.
+                    </p>
+                    <div class="contact-option-actions">
+                        <button class="contact-option-button contact-option-button--primary"
+                                type="button"
+                                data-contact-action="chat">
+                            START CHAT
+                        </button>
+                        <p class="contact-option-caption">Typically replies in 2–4 hours</p>
+                    </div>
+                </article>
+
+                <article class="contact-option-card">
+                    <div class="contact-option-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <rect x="3" y="5" width="18" height="14" rx="1.5"/>
+                            <path d="m4 7 8 6 8-6"/>
+                        </svg>
+                    </div>
+                    <h3>SEND AN EMAIL</h3>
+                    <p class="contact-option-description">
+                        Detailed inquiry? Share your requirements and we’ll get back with a tailored quote within 24 hours.
+                    </p>
+                    <div class="contact-option-actions">
+                        <a class="contact-option-button contact-option-button--outline"
+                           href="mailto:info@shalvadze.com">
+                            WRITE EMAIL
+                        </a>
+                        <p class="contact-option-caption">Reply within 24 hours</p>
+                    </div>
+                </article>
+
+                <article class="contact-option-card">
+                    <div class="contact-option-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" focusable="false">
+                            <path d="M6 3h8l4 4v14H6Z"/>
+                            <path d="M14 3v5h4M9 13h6M9 17h6"/>
+                        </svg>
+                    </div>
+                    <h3>QUICK QUOTE</h3>
+                    <p class="contact-option-description">
+                        Know what you need? Fill out a quick form and we’ll send you a quote within 1 business day.
+                    </p>
+                    <div class="contact-option-actions">
+                        <button class="contact-option-button contact-option-button--outline"
+                                type="button"
+                                data-contact-action="quote">
+                            GET QUOTE
+                        </button>
+                        <p class="contact-option-caption">Quote within 1 business day</p>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="contact-direct">
+                <p>Prefer to reach out directly?</p>
+                <a href="mailto:info@shalvadze.com">info@shalvadze.com</a>
+            </div>
+
+        </div>
+
+        <div class="contact-mobile" aria-labelledby="contact-mobile-title">
+
+            <p class="contact-mobile-label">CONTACT</p>
+            <h2 class="contact-mobile-title" id="contact-mobile-title">Say Hi</h2>
+            <p class="contact-mobile-intro">Choose how you’d like to reach us.</p>
+
+            <div class="contact-mobile-actions">
+
+                <button class="contact-mobile-action"
+                        type="button"
+                        data-contact-action="chat">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20 11.5c0 4.14-3.58 7.5-8 7.5-1.12 0-2.18-.22-3.14-.6L4 21l1.35-4.05A7.18 7.18 0 0 1 4 11.5C4 7.36 7.58 4 12 4s8 3.36 8 7.5Z"/>
+                        <path d="M9 11.5h.01M12 11.5h.01M15 11.5h.01"/>
+                    </svg>
+                    <span>Chat with us</span>
+                    <span class="contact-mobile-arrow" aria-hidden="true">→</span>
+                </button>
+
+                <a class="contact-mobile-action" href="mailto:info@shalvadze.com">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <rect x="3" y="5" width="18" height="14" rx="1.5"/>
+                        <path d="m4 7 8 6 8-6"/>
+                    </svg>
+                    <span>Send an email</span>
+                    <span class="contact-mobile-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <button class="contact-mobile-action"
+                        type="button"
+                        data-contact-action="quote">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M6 3h8l4 4v14H6Z"/>
+                        <path d="M14 3v5h4M9 13h6M9 17h6"/>
+                    </svg>
+                    <span>Request a quote</span>
+                    <span class="contact-mobile-arrow" aria-hidden="true">→</span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <p class="section-label contact-existing">CONTACT</p>
+
+        <h2 class="contact-existing">Request a Quote</h2>
+
+        <p class="contact-intro contact-existing">
             Tell us about your sourcing requirements and we'll get back to you as soon as possible.
         </p>
 
-        <form class="contact-form">
+        <form class="contact-form contact-existing">
 
             <div class="form-row">
 
@@ -363,6 +488,22 @@
             <p class="footer-copyright">© 2026 SHALVADZE. All rights reserved.</p>
         </div>
 
+    </div>
+
+    <div class="footer-mobile" aria-label="SHALVADZE footer">
+        <img class="footer-mobile-logo"
+             src="images/SHALVADZE_Icon_White.svg?v=20260815-footer"
+             height="40"
+             alt="SHALVADZE">
+        <a class="footer-mobile-email" href="mailto:info@shalvadze.com">
+            info@shalvadze.com
+        </a>
+        <div class="footer-mobile-legal" aria-label="Legal information">
+            <span>Privacy Policy</span>
+            <span aria-hidden="true">·</span>
+            <span>Terms &amp; Conditions</span>
+        </div>
+        <p class="footer-mobile-copyright">© 2026 SHALVADZE</p>
     </div>
 
 </footer>
