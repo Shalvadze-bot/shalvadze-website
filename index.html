@@ -19,7 +19,6 @@
 <body id="top">
 
  <header>
-
     <div class="logo">
         <a href="#top" aria-label="SHALVADZE home">
             <img src="images/SHALVADZE_Primary_Black.svg?v=20260815-header-logo" alt="">
@@ -32,9 +31,9 @@
 
             <div class="nav-links" id="primary-navigation">
 
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
+                <a class="nav-link-pending" role="link" aria-disabled="true">About</a>
                 <a href="#products">Products</a>
+                <a href="#services">Services</a>
                 <a href="#contact">Contact</a>
 
             </div>
@@ -44,200 +43,421 @@
                     aria-label="Open navigation menu"
                     aria-controls="primary-navigation"
                     aria-expanded="false">
-
                 <span></span>
                 <span></span>
                 <span></span>
-
             </button>
-
         </nav>
-
         <div class="language-selector" title="English">
             <span class="language-current"><span aria-hidden="true">🇬🇧</span> EN</span>
         </div>
-
     </div>
-
 </header>
 
 
     <main>
-
         <section class="hero">
-
             <div class="hero-content">
-
                 <p class="eyebrow">
                     Connecting markets.
                 </p>
-
                 <h1>
                     Building Trust.<br>
                     Creating Value.
                 </h1>
-
                 <p class="hero-text">
                     SHALVADZE is your trusted partner for sourcing,
                     quality control, and logistics. We connect businesses
                     with reliable suppliers and deliver results.
                 </p>
-
-                <a href="#contact" class="button">
-                    Get a Quote
-                </a>
-
+                <span class="button hero-about-button" role="link" aria-disabled="true">
+                    About Us
+                </span>
             </div>
-
         </section>
 
 
-        <section id="about" class="about-section">
+        <template id="future-about-content">
+            <section class="about-section">
+                <div class="about-heading">
+                    <p class="eyebrow">ABOUT SHALVADZE</p>
+                    <h2>Building connections across markets.</h2>
+                </div>
+                <div class="about-content">
+                    <p>SHALVADZE is a Hong Kong-based trading and sourcing company connecting businesses with trusted manufacturing partners across international markets.</p>
+                    <p>We help businesses identify suitable suppliers, explore competitive sourcing opportunities and develop reliable international supply relationships.</p>
+                </div>
+            </section>
+        </template>
 
-    <div class="about-heading">
+        <section id="products" class="products-section" aria-labelledby="products-title">
+            <div class="products-container">
+                <div class="products-layout">
+                    <div class="products-overview">
+                        <p class="products-eyebrow">PRODUCTS WE SOURCE</p>
+                        <h2 id="products-title">What We Source<br>for Your Business</h2>
+                        <p class="products-description">We specialize in PP plastic stationery and source a wide range of quality products from trusted manufacturers in China.</p>
 
-        <p class="eyebrow">ABOUT SHALVADZE</p>
+                        <div class="product-selectors" role="tablist" aria-label="Product categories">
+                            <button class="product-selector is-active"
+                                    id="products-tab-expertise"
+                                    type="button"
+                                    role="tab"
+                                    aria-selected="true"
+                                    aria-controls="products-panel-expertise"
+                                    data-products-panel="expertise">
+                                <span class="product-selector-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 48 48" focusable="false">
+                                        <path d="m24 6 4.3 4.3 6-.2.2 6L39 20l-4.5 3.9-.2 6-6-.2L24 34l-4.3-4.3-6 .2-.2-6L9 20l4.5-3.9.2-6 6 .2Z"></path>
+                                        <path d="m19.5 20 3 3 6-6M18 31l-2 9 8-4 8 4-2-9"></path>
+                                    </svg>
+                                </span>
+                                <span class="product-selector-copy">
+                                    <span class="product-selector-label">Our Expertise</span>
+                                    <span class="product-selector-subtitle">PP Plastic Stationery</span>
+                                </span>
+                                <span class="product-selector-arrow" aria-hidden="true">→</span>
+                            </button>
+                            <button class="product-selector"
+                                    id="products-tab-other"
+                                    type="button"
+                                    role="tab"
+                                    aria-selected="false"
+                                    aria-controls="products-panel-other"
+                                    tabindex="-1"
+                                    data-products-panel="other">
+                                <span class="product-selector-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 48 48" focusable="false">
+                                        <rect x="7" y="7" width="13" height="13" rx="2"></rect>
+                                        <rect x="28" y="7" width="13" height="13" rx="2"></rect>
+                                        <rect x="7" y="28" width="13" height="13" rx="2"></rect>
+                                        <rect x="28" y="28" width="13" height="13" rx="2"></rect>
+                                    </svg>
+                                </span>
+                                <span class="product-selector-copy">
+                                    <span class="product-selector-label">Other Categories</span>
+                                    <span class="product-selector-subtitle">More Products We Source</span>
+                                </span>
+                                <span class="product-selector-arrow" aria-hidden="true">→</span>
+                            </button>
+                        </div>
 
-        <h2>
-            Building connections
-            across markets.
-        </h2>
+                        <aside class="products-help-card" aria-label="Product sourcing assistance">
+                            <span class="products-help-icon" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" focusable="false">
+                                    <path d="m8 26 7-7 8 3 8-3 9 8-7 7-8-5-6 5Z"></path>
+                                    <path d="m8 26-4-4 8-9 7 5M40 27l4-4-8-9-7 5M18 31l4 4M23 29l5 4M28 27l5 4"></path>
+                                </svg>
+                            </span>
+                            <span class="products-help-copy">
+                                <strong>Can’t find what you’re looking for?</strong>
+                                <span>Contact us and we’ll help you source it.</span>
+                                <a href="#contact">Say Hi to Our Team <span aria-hidden="true">→</span></a>
+                            </span>
+                        </aside>
+                    </div>
 
-    </div>
+                    <div class="products-content">
+                        <div class="products-panel is-active"
+                             id="products-panel-expertise"
+                             role="tabpanel"
+                             aria-labelledby="products-tab-expertise"
+                            data-products-content="expertise">
+                            <p class="products-panel-label">OUR EXPERTISE</p>
+                            <div class="expertise-viewport">
+                                    <article class="expertise-slide">
+                                        <div class="expertise-visual">
+                                            <img src="images/products/school-products.jpg"
+                                                 alt=""
+                                                 width="1200"
+                                                 height="800"
+                                                 loading="lazy">
+                                        </div>
+                                        <div class="expertise-slide-copy">
+                                            <span>01 / OUR EXPERTISE</span>
+                                            <h3>School Products</h3>
+                                            <p>PP plastic folders, document files, notebooks, pencil cases, rulers and other school essentials.</p>
+                                        </div>
+                                    </article>
+
+                                    <article class="expertise-slide">
+                                        <div class="expertise-visual">
+                                            <img src="images/products/office-products.jpg"
+                                                 alt=""
+                                                 width="1200"
+                                                 height="800"
+                                                 loading="lazy">
+                                        </div>
+                                        <div class="expertise-slide-copy">
+                                            <span>02 / OUR EXPERTISE</span>
+                                            <h3>Office Products</h3>
+                                            <p>PP file folders, document holders, organizers, clipboards and other office accessories.</p>
+                                        </div>
+                                    </article>
+                            </div>
+
+                            <div class="products-subcategory-heading">
+                                <p class="products-subcategory-label">EXPLORE SUBCATEGORIES</p>
+                            </div>
+                            <div class="expertise-subcategories">
+                                <div class="subcategory-group">
+                                    <div class="subcategory-heading-row">
+                                        <span class="subcategory-heading-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 32 32" focusable="false"><path d="m3 11 13-6 13 6-13 6Zm5 3v8c5 4 11 4 16 0v-8M28 12v10"></path></svg>
+                                        </span>
+                                        <h4>School Products</h4>
+                                    </div>
+                                    <ul class="subcategory-items">
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 6h8l2 3h8v14H5Z"></path></svg></span><span>PP Folders</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M7 4h10l5 5v15H7Zm10 0v6h5M10 14h9M10 18h9"></path></svg></span><span>Document Files</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="7" y="4" width="15" height="20" rx="2"></rect><path d="M10 4v20M13 9h6M13 13h6"></path></svg></span><span>Notebooks</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m6 20 13-13 3 3-13 13-4 1Zm11-11 3 3"></path></svg></span><span>Pencil Cases</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m5 21 16-16 3 3L8 24Zm5-2 2 2m1-6 2 2m1-6 2 2"></path></svg></span><span>Rulers</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m5 9 9-5 9 5-9 5Zm0 0v11l9 4 9-4V9M14 14v10"></path></svg></span><span>School Sets</span></li>
+                                    </ul>
+                                    <p class="subcategory-description">Practical PP school supplies in a range of formats for organized, everyday use.</p>
+                                    <span class="subcategory-future-link">View all school products <span aria-hidden="true">→</span></span>
+                                </div>
+                                <div class="subcategory-group">
+                                    <div class="subcategory-heading-row">
+                                        <span class="subcategory-heading-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 32 32" focusable="false"><rect x="4" y="10" width="24" height="16" rx="2"></rect><path d="M11 10V6h10v4M4 16h24M13 16v3h6v-3"></path></svg>
+                                        </span>
+                                        <h4>Office Products</h4>
+                                    </div>
+                                    <ul class="subcategory-items">
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 6h8l2 3h8v14H5Z"></path></svg></span><span>File Folders</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M7 4h10l5 5v15H7Zm10 0v6h5M10 14h9M10 18h9"></path></svg></span><span>Document Holders</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="4" y="7" width="20" height="16" rx="2"></rect><path d="M4 12h20M10 7v16M18 7v16"></path></svg></span><span>Organizers</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="20" rx="2"></rect><path d="M11 5V3h6v2M10 11h8M10 15h8"></path></svg></span><span>Clipboards</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 8h18v15H5Zm3-4h12v4H8M9 13h10M9 17h10"></path></svg></span><span>Desk Accessories</span></li>
+                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 9h18v14H5Zm2-4h14l2 4H5Zm5 9h4"></path></svg></span><span>Storage Boxes</span></li>
+                                    </ul>
+                                    <p class="subcategory-description">Functional office products that support clear filing, storage and workspace organization.</p>
+                                    <span class="subcategory-future-link">View all office products <span aria-hidden="true">→</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="products-panel"
+                             id="products-panel-other"
+                             role="tabpanel"
+                             aria-labelledby="products-tab-other"
+                             data-products-content="other"
+                             hidden>
+                            <p class="products-panel-label">OTHER CATEGORIES</p>
+                            <div class="other-categories-grid">
+                                <article class="other-category-card">
+                                    <div class="other-category-visual">
+                                        <img src="images/products/textile.jpg" alt="" width="900" height="600" loading="lazy">
+                                    </div>
+                                    <div class="other-category-copy">
+                                        <div class="other-category-title">
+                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m11 6-7 5 4 7 4-2v11h8V16l4 2 4-7-7-5c-1 4-9 4-10 0Z"></path></svg></span>
+                                            <h3>Textile</h3>
+                                        </div>
+                                        <p>Quality fabrics and textile products for various business needs.</p>
+                                        <span class="other-category-arrow" aria-hidden="true">→</span>
+                                    </div>
+                                </article>
+                                <article class="other-category-card">
+                                    <div class="other-category-visual">
+                                        <img src="images/products/pet-supplies.jpg" alt="" width="900" height="600" loading="lazy">
+                                    </div>
+                                    <div class="other-category-copy">
+                                        <div class="other-category-title">
+                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="9" cy="10" r="3"></circle><circle cx="16" cy="7" r="3"></circle><circle cx="23" cy="10" r="3"></circle><path d="M8 23c1-7 5-11 8-11s7 4 8 11c-4 4-12 4-16 0Z"></path></svg></span>
+                                            <h3>Pet Supplies</h3>
+                                        </div>
+                                        <p>Practical and reliable supplies for pets and pet businesses.</p>
+                                        <span class="other-category-arrow" aria-hidden="true">→</span>
+                                    </div>
+                                </article>
+                                <article class="other-category-card">
+                                    <div class="other-category-visual">
+                                        <img src="images/products/accessories.jpg" alt="" width="900" height="600" loading="lazy">
+                                    </div>
+                                    <div class="other-category-copy">
+                                        <div class="other-category-title">
+                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 10h18l2 17H5Zm5 0V7c0-5 8-5 8 0v3"></path></svg></span>
+                                            <h3>Accessories</h3>
+                                        </div>
+                                        <p>Fashion and lifestyle accessories in a variety of designs.</p>
+                                        <span class="other-category-arrow" aria-hidden="true">→</span>
+                                    </div>
+                                </article>
+                                <article class="other-category-card">
+                                    <div class="other-category-visual">
+                                        <img src="images/products/toys.jpg" alt="" width="900" height="600" loading="lazy">
+                                    </div>
+                                    <div class="other-category-copy">
+                                        <div class="other-category-title">
+                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="16" width="11" height="11" rx="2"></rect><rect x="13" y="7" width="11" height="20" rx="2"></rect><circle cx="25" cy="20" r="5"></circle><path d="M7 21h5M9.5 18.5v5M16 12h5"></path></svg></span>
+                                            <h3>Toys</h3>
+                                        </div>
+                                        <p>Safe and fun toys for children in different categories.</p>
+                                        <span class="other-category-arrow" aria-hidden="true">→</span>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-    <div class="about-content">
+        <section id="services" class="services-section" aria-labelledby="services-title">
+            <div class="services-container">
+                <div class="services-header">
+                    <p class="services-eyebrow">SERVICES</p>
+                    <h2 id="services-title">End-to-End Support in China</h2>
+                    <p class="services-intro">
+                        Whether you need full sourcing support or specific services,<br>
+                        we help you operate with confidence, quality and efficiency.
+                    </p>
+                </div>
 
-        <p>
-            SHALVADZE is a Hong Kong-based trading and sourcing
-            company connecting businesses with trusted
-            manufacturing partners across international markets.
-        </p>
+                <div class="services-carousel" data-services-carousel aria-label="Services carousel">
+                    <button class="services-carousel-arrow services-carousel-arrow--previous"
+                            type="button"
+                            aria-label="Previous service"
+                            data-service-control="previous">←</button>
 
-        <p>
-            We help businesses identify suitable suppliers,
-            explore competitive sourcing opportunities and
-            develop reliable international supply relationships.
-        </p>
+                    <div class="services-viewport" data-services-viewport>
+                        <div class="services-track">
+                            <article class="service-card is-previous" data-service-index="0">
+                                <button class="service-card-button" type="button" data-service-select="0" aria-label="Show Sourcing and Supplier Research">
+                                    <span class="service-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 48 48" focusable="false">
+                                            <circle cx="21" cy="21" r="12"></circle>
+                                            <path d="m30 30 10 10"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="service-number">01</span>
+                                    <h3>Sourcing &amp; Supplier Research</h3>
+                                    <span class="service-rule" aria-hidden="true"></span>
+                                    <span class="service-description">We find and evaluate reliable suppliers, negotiate the best terms and help you get the right products.</span>
+                                </button>
+                            </article>
 
-    </div>
+                            <article class="service-card is-active" data-service-index="1" aria-current="true">
+                                <button class="service-card-button" type="button" data-service-select="1" aria-label="Show Quality Control and Inspection">
+                                    <span class="service-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 48 48" focusable="false">
+                                            <path d="M24 5 39 11v11c0 9-6.2 16.3-15 21-8.8-4.7-15-12-15-21V11Z"></path>
+                                            <path d="m17 24 5 5 10-11"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="service-number">02</span>
+                                    <h3>Quality Control &amp; Inspection</h3>
+                                    <span class="service-rule" aria-hidden="true"></span>
+                                    <span class="service-description">We help ensure agreed quality requirements are checked through inspections and product verification before shipment.</span>
+                                </button>
+                            </article>
 
-</section>
+                            <article class="service-card is-next" data-service-index="2">
+                                <button class="service-card-button" type="button" data-service-select="2" aria-label="Show Factory Visits">
+                                    <span class="service-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 48 48" focusable="false">
+                                            <path d="M8 42V18h9v8l10-8v8l10-8v24Z"></path>
+                                            <path d="M8 18V7h8v11M15 34h5M27 34h5M38 34h3"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="service-number">03</span>
+                                    <h3>Factory Visits</h3>
+                                    <span class="service-rule" aria-hidden="true"></span>
+                                    <span class="service-description">We visit factories, support supplier meetings and provide clear on-site feedback so you can make informed decisions.</span>
+                                </button>
+                            </article>
 
+                            <article class="service-card is-hidden" data-service-index="3" aria-hidden="true">
+                                <button class="service-card-button" type="button" data-service-select="3" aria-label="Show Logistics Support" tabindex="-1">
+                                    <span class="service-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 48 48" focusable="false">
+                                            <path d="M5 12h24v22H5Z"></path>
+                                            <path d="M29 20h9l6 8v6H29ZM14 40a6 6 0 1 0 0-12 6 6 0 0 0 0 12ZM37 40a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="service-number">04</span>
+                                    <h3>Logistics Support</h3>
+                                    <span class="service-rule" aria-hidden="true"></span>
+                                    <span class="service-description">We help coordinate shipping, documentation and communication with logistics partners to support smooth delivery.</span>
+                                </button>
+                            </article>
 
-            <section id="services" class="services-section">
+                            <article class="service-card is-hidden" data-service-index="4" aria-hidden="true">
+                                <button class="service-card-button" type="button" data-service-select="4" aria-label="Show China Business Assistance" tabindex="-1">
+                                    <span class="service-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 48 48" focusable="false">
+                                            <circle cx="24" cy="16" r="9"></circle>
+                                            <path d="M9 42c0-9 6-14 15-14s15 5 15 14Z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="service-number">05</span>
+                                    <h3>China Business Assistance</h3>
+                                    <span class="service-rule" aria-hidden="true"></span>
+                                    <span class="service-description">We assist with meetings, supplier communication, negotiation support and practical on-the-ground business needs in China.</span>
+                                </button>
+                            </article>
+                        </div>
+                        <p class="services-carousel-status" aria-live="polite" aria-atomic="true" data-service-status>Service 2 of 5: Quality Control &amp; Inspection</p>
+                    </div>
 
-    <div class="section-intro">
+                    <button class="services-carousel-arrow services-carousel-arrow--next"
+                            type="button"
+                            aria-label="Next service"
+                            data-service-control="next">→</button>
+                </div>
 
-        <p class="eyebrow">WHAT WE DO</p>
+                <div class="services-cta">
+                    <div class="services-cta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 64 64" focusable="false">
+                            <path d="m7 24 11-11 11 5 7-4 9 4 12 12-9 10-6-2-12 12-5-5-5 1-5-6-5-1-4-6 6-7Z"></path>
+                            <path d="m22 42 6-6M27 47l6-6M34 48l5-5M24 21l8 7c2 2 5 2 7 0l4-4M18 13l-8 18M45 18l10 20"></path>
+                        </svg>
+                    </div>
+                    <div class="services-cta-copy">
+                        <h3>Don’t need full sourcing support?</h3>
+                        <p class="services-cta-question">Already have a supplier or factory?</p>
+                        <p>Choose only the support you need — from inspections and factory visits to logistics coordination and local business assistance.</p>
+                    </div>
+                    <span class="services-cta-button" role="button" aria-disabled="true">
+                        EXPLORE OTHER SERVICES <span aria-hidden="true">→</span>
+                    </span>
+                </div>
 
-        <h2>Our Services</h2>
-
-    </div>
-
-
-    <div class="services-grid">
-
-        <article class="service-card">
-
-            <span class="service-number">01</span>
-
-            <h3>B2B Sourcing</h3>
-
-            <p>
-                We identify suitable products and manufacturers
-                based on your requirements, target market and
-                purchasing needs.
-            </p>
-
-            <a href="#contact">Learn more →</a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <span class="service-number">02</span>
-
-            <h3>International Trading</h3>
-
-            <p>
-                We support businesses with cross-border purchasing,
-                supplier coordination and international supply.
-            </p>
-
-            <a href="#contact">Learn more →</a>
-
-        </article>
-
-
-        <article class="service-card">
-
-            <span class="service-number">03</span>
-
-            <h3>Supplier Matching</h3>
-
-            <p>
-                We connect businesses with manufacturing partners
-                suited to their product, quality and commercial
-                requirements.
-            </p>
-
-            <a href="#contact">Learn more →</a>
-
-        </article>
-
-    </div>
-
-</section>
-
-        <section id="products" class="products-section">
-
-    <div class="section-intro">
-
-        <p class="eyebrow">PRODUCTS</p>
-
-        <h2>What We Source</h2>
-
-    </div>
-
-
-    <div class="product-list">
-
-        <div class="product-item">
-            <span>01</span>
-            <strong>Textiles</strong>
-            <span class="arrow" aria-hidden="true">→</span>
-        </div>
-
-        <div class="product-item">
-            <span>02</span>
-            <strong>Jewellery</strong>
-            <span class="arrow" aria-hidden="true">→</span>
-        </div>
-
-        <div class="product-item">
-            <span>03</span>
-            <strong>Toys</strong>
-            <span class="arrow" aria-hidden="true">→</span>
-        </div>
-
-        <div class="product-item">
-            <span>04</span>
-            <strong>Stationery</strong>
-            <span class="arrow" aria-hidden="true">→</span>
-        </div>
-
-        <div class="product-item">
-            <span>05</span>
-            <strong>Office Products</strong>
-            <span class="arrow" aria-hidden="true">→</span>
-        </div>
-
-    </div>
-
-</section>
-
+                <div class="services-trust" aria-label="How we support your business">
+                    <div class="services-trust-item">
+                        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+                            <path d="M20 3 33 8v10c0 8-5 14-13 19C12 32 7 26 7 18V8Z"></path>
+                            <path d="m14 20 4 4 8-9"></path>
+                        </svg>
+                        <div><h3>Trusted Network</h3><p>Supporting businesses through reliable supplier relationships.</p></div>
+                    </div>
+                    <div class="services-trust-item">
+                        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+                            <path d="M35 18c0 8-7 14-16 14-2 0-4-.3-6-1L5 36l2-9c-2-2-3-5-3-9C4 10 11 4 20 4s15 6 15 14Z"></path>
+                        </svg>
+                        <div><h3>Clear Communication</h3><p>Simple, transparent and responsive at every step.</p></div>
+                    </div>
+                    <div class="services-trust-item">
+                        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+                            <circle cx="20" cy="20" r="16"></circle>
+                            <path d="M4 20h32M20 4c5 5 7 10 7 16s-2 11-7 16c-5-5-7-10-7-16s2-11 7-16Z"></path>
+                        </svg>
+                        <div><h3>Global Support</h3><p>Helping businesses source and operate across international markets.</p></div>
+                    </div>
+                    <div class="services-trust-item">
+                        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+                            <path d="m20 3 5 4 6-1 2 6 5 4-3 6 1 6-6 2-4 6-6-3-6 3-4-6-6-2 1-6-3-6 5-4 2-6 6 1Z"></path>
+                            <path d="m14 20 4 4 8-9"></path>
+                        </svg>
+                        <div><h3>Your Success First</h3><p>Focused on practical solutions and long-term relationships.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
  <section id="contact" class="contact-section">
 
