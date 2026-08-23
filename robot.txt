@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://shalvadze.com/sitemap.xml
