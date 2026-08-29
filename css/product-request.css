@@ -497,6 +497,16 @@
     color: #111;
 }
 
+.request-submit:disabled {
+    cursor: wait;
+    opacity: 0.68;
+}
+
+.request-submit:disabled:hover {
+    background: #111;
+    color: #fff;
+}
+
 .request-privacy {
     margin: 15px 0 0;
     color: #666;
@@ -517,6 +527,16 @@
 
 .request-form-status.is-visible {
     display: block;
+}
+
+.request-form-status.is-success {
+    border-left-width: 4px;
+}
+
+.request-form-status.is-error {
+    border-color: #9c1919;
+    border-left-width: 4px;
+    color: #7d1515;
 }
 
 @media (max-width: 1024px) {

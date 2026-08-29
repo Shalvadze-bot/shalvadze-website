@@ -4,6 +4,9 @@ const productReferenceZone = document.querySelector("[data-upload-zone]");
 const productReferenceTitle = document.querySelector("[data-upload-title]");
 const productReferenceMessage = document.querySelector("#product-request-file-message");
 const productRequestStatus = document.querySelector("#product-request-status");
+const productRequestSubmitButton = document.querySelector("#product-request-submit");
+
+const productRequestEndpoint = "https://script.google.com/macros/s/AKfycbyIEQy_iecLD6obZ2zZ1vG59F1oAljMOSQKM4zkazLWx6r32_yBpxucQH3-X6d8cYID/exec";
 
 const maximumReferenceSize = 10 * 1024 * 1024;
 const acceptedReferenceTypes = [
@@ -78,8 +81,10 @@ if (productReferenceInput && productReferenceZone && productReferenceTitle && pr
     });
 }
 
-if (productRequestForm && productRequestStatus) {
+if (productRequestForm && productRequestStatus && productRequestSubmitButton) {
     let hasStarted = false;
+    let isSubmitting = false;
+    const submitButtonContent = productRequestSubmitButton.innerHTML;
 
     const dispatchAnalyticsHook = (eventName) => {
         productRequestForm.dispatchEvent(new CustomEvent(eventName, {
@@ -102,9 +107,20 @@ if (productRequestForm && productRequestStatus) {
     productRequestForm.addEventListener("focusin", markProductRequestStarted);
     productRequestForm.addEventListener("input", markProductRequestStarted);
 
-    productRequestForm.addEventListener("submit", (event) => {
+    const showSubmissionStatus = (message, state) => {
+        productRequestStatus.textContent = message;
+        productRequestStatus.classList.remove("is-error", "is-success");
+        productRequestStatus.classList.add("is-visible", state);
+        productRequestStatus.focus({ preventScroll: true });
+    };
+
+    productRequestForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-        productRequestStatus.classList.remove("is-visible");
+        productRequestStatus.classList.remove("is-visible", "is-error", "is-success");
+
+        if (isSubmitting) {
+            return;
+        }
 
         if (productReferenceInput && !announceReferenceFile(productReferenceInput.files[0])) {
             productReferenceInput.reportValidity();
@@ -116,9 +132,67 @@ if (productRequestForm && productRequestStatus) {
             return;
         }
 
-        dispatchAnalyticsHook(productRequestForm.dataset.gaSubmitEvent);
-        productRequestStatus.innerHTML = "The form is ready for submission handling to be connected. To send your request now, email <a href=\"mailto:info@shalvadze.com\">info@shalvadze.com</a>.";
-        productRequestStatus.classList.add("is-visible");
-        productRequestStatus.focus({ preventScroll: true });
+        const submissionData = new URLSearchParams({
+            productName: productRequestForm.elements.productName.value.trim(),
+            productUrl: productRequestForm.elements.productUrl.value.trim(),
+            quantity: productRequestForm.elements.quantity.value.trim(),
+            targetPrice: productRequestForm.elements.targetPrice.value.trim(),
+            destination: productRequestForm.elements.destination.value.trim(),
+            customerName: productRequestForm.elements.customerName.value.trim(),
+            customerEmail: productRequestForm.elements.customerEmail.value.trim(),
+            companyName: productRequestForm.elements.companyName.value.trim(),
+            message: productRequestForm.elements.message.value.trim()
+        });
+
+        isSubmitting = true;
+        productRequestSubmitButton.disabled = true;
+        productRequestSubmitButton.setAttribute("aria-busy", "true");
+        productRequestSubmitButton.textContent = "SUBMITTING…";
+
+        try {
+            const response = await fetch(productRequestEndpoint, {
+                method: "POST",
+                body: submissionData,
+                redirect: "follow"
+            });
+
+            if (!response.ok) {
+                throw new Error(`Product request submission failed with status ${response.status}.`);
+            }
+
+            const responseContentType = response.headers.get("content-type") || "";
+
+            if (responseContentType.includes("application/json")) {
+                const responseData = await response.json();
+
+                if (responseData.success === false || responseData.status === "error") {
+                    throw new Error(responseData.message || "The Apps Script endpoint reported an error.");
+                }
+            }
+
+            dispatchAnalyticsHook(productRequestForm.dataset.gaSubmitEvent);
+            showSubmissionStatus(
+                "Thank you. Your product request has been submitted successfully. We’ll review your request and get back to you.",
+                "is-success"
+            );
+            productRequestForm.reset();
+            hasStarted = false;
+
+            if (productReferenceInput) {
+                productReferenceMessage.style.color = "";
+                announceReferenceFile();
+            }
+        } catch (error) {
+            console.error("Product request submission error:", error);
+            showSubmissionStatus(
+                "We couldn’t submit your product request. Please check your connection and try again.",
+                "is-error"
+            );
+        } finally {
+            isSubmitting = false;
+            productRequestSubmitButton.disabled = false;
+            productRequestSubmitButton.removeAttribute("aria-busy");
+            productRequestSubmitButton.innerHTML = submitButtonContent;
+        }
     });
 }

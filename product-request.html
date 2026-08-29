@@ -165,7 +165,7 @@
                         <div class="request-field request-field--full">
                             <label for="product-request-description">Product Name / Description <span aria-hidden="true">*</span></label>
                             <textarea id="product-request-description"
-                                      name="product_description"
+                                      name="productName"
                                       rows="4"
                                       placeholder="What product are you looking for? Include specifications, materials or intended use."
                                       required></textarea>
@@ -174,7 +174,7 @@
                         <div class="request-field">
                             <label for="product-request-url">Product URL <span class="request-optional">Optional</span></label>
                             <input id="product-request-url"
-                                   name="product_url"
+                                   name="productUrl"
                                    type="url"
                                    inputmode="url"
                                    placeholder="https://example.com/product">
@@ -192,7 +192,7 @@
                         <div class="request-field">
                             <label for="product-request-target-price">Target Price <span class="request-optional">Optional</span></label>
                             <input id="product-request-target-price"
-                                   name="target_price"
+                                   name="targetPrice"
                                    type="text"
                                    placeholder="e.g. USD 2.50 per unit">
                         </div>
@@ -210,7 +210,7 @@
                         <div class="request-field">
                             <label for="product-request-name">Your Name <span aria-hidden="true">*</span></label>
                             <input id="product-request-name"
-                                   name="requester_name"
+                                   name="customerName"
                                    type="text"
                                    autocomplete="name"
                                    placeholder="Full name"
@@ -220,7 +220,7 @@
                         <div class="request-field">
                             <label for="product-request-email">Business Email <span aria-hidden="true">*</span></label>
                             <input id="product-request-email"
-                                   name="business_email"
+                                   name="customerEmail"
                                    type="email"
                                    inputmode="email"
                                    autocomplete="email"
@@ -231,7 +231,7 @@
                         <div class="request-field request-field--full">
                             <label for="product-request-company">Company Name <span aria-hidden="true">*</span></label>
                             <input id="product-request-company"
-                                   name="company_name"
+                                   name="companyName"
                                    type="text"
                                    autocomplete="organization"
                                    placeholder="Your company name"
@@ -259,7 +259,7 @@
                         <div class="request-field request-field--full">
                             <label for="product-request-message">Additional Requirements / Message <span class="request-optional">Optional</span></label>
                             <textarea id="product-request-message"
-                                      name="additional_requirements"
+                                      name="message"
                                       rows="6"
                                       placeholder="Share packaging, certification, timing, delivery or other requirements."></textarea>
                         </div>
@@ -271,7 +271,7 @@
                     </button>
 
                     <p class="request-privacy">Your information will only be used to review and respond to your request.</p>
-                    <p class="request-form-status" id="product-request-status" role="status" aria-live="polite"></p>
+                    <p class="request-form-status" id="product-request-status" role="status" aria-live="polite" tabindex="-1"></p>
                 </form>
             </div>
         </div>
