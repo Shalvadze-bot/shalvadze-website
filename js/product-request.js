@@ -5,8 +5,54 @@ const productReferenceTitle = document.querySelector("[data-upload-title]");
 const productReferenceMessage = document.querySelector("#product-request-file-message");
 const productRequestStatus = document.querySelector("#product-request-status");
 const productRequestSubmitButton = document.querySelector("#product-request-submit");
+const productUrlInput = document.querySelector("#product-request-url");
+const productUrlError = document.querySelector("#product-request-url-error");
 
 const productRequestEndpoint = "https://script.google.com/macros/s/AKfycbyIEQy_iecLD6obZ2zZ1vG59F1oAljMOSQKM4zkazLWx6r32_yBpxucQH3-X6d8cYID/exec";
+const invalidProductUrlMessage = "Please enter a valid product link or leave this field empty.";
+
+const normalizeProductUrl = (value) => {
+    const trimmedValue = value.trim();
+
+    if (!trimmedValue) {
+        return "";
+    }
+
+    const valueWithProtocol = /^[a-z][a-z\d+.-]*:\/\//i.test(trimmedValue)
+        ? trimmedValue
+        : `https://${trimmedValue}`;
+
+    try {
+        const normalizedUrl = new URL(valueWithProtocol);
+        const hasSupportedProtocol = normalizedUrl.protocol === "http:" || normalizedUrl.protocol === "https:";
+        const hostnameLabels = normalizedUrl.hostname.split(".");
+        const hasReasonableHostname = hostnameLabels.length > 1
+            && hostnameLabels.every((label) => /^[a-z\d](?:[a-z\d-]{0,61}[a-z\d])?$/i.test(label));
+
+        if (!hasSupportedProtocol || !hasReasonableHostname) {
+            return null;
+        }
+
+        return normalizedUrl.href;
+    } catch (error) {
+        return null;
+    }
+};
+
+const normalizeAndValidateProductUrl = () => {
+    const normalizedUrl = normalizeProductUrl(productUrlInput.value);
+    const isValid = normalizedUrl !== null;
+
+    productUrlInput.setCustomValidity(isValid ? "" : invalidProductUrlMessage);
+    productUrlError.textContent = isValid ? "" : invalidProductUrlMessage;
+    productUrlError.classList.toggle("is-visible", !isValid);
+
+    if (isValid) {
+        productUrlInput.value = normalizedUrl;
+    }
+
+    return isValid;
+};
 
 const maximumReferenceSize = 10 * 1024 * 1024;
 const acceptedReferenceTypes = [
@@ -81,7 +127,17 @@ if (productReferenceInput && productReferenceZone && productReferenceTitle && pr
     });
 }
 
-if (productRequestForm && productRequestStatus && productRequestSubmitButton) {
+if (productUrlInput && productUrlError) {
+    productUrlInput.addEventListener("input", () => {
+        productUrlInput.setCustomValidity("");
+        productUrlError.textContent = "";
+        productUrlError.classList.remove("is-visible");
+    });
+
+    productUrlInput.addEventListener("blur", normalizeAndValidateProductUrl);
+}
+
+if (productRequestForm && productRequestStatus && productRequestSubmitButton && productUrlInput && productUrlError) {
     let hasStarted = false;
     let isSubmitting = false;
     const submitButtonContent = productRequestSubmitButton.innerHTML;
@@ -127,8 +183,15 @@ if (productRequestForm && productRequestStatus && productRequestSubmitButton) {
             return;
         }
 
+        const isProductUrlValid = normalizeAndValidateProductUrl();
+
         if (!productRequestForm.checkValidity()) {
             productRequestForm.reportValidity();
+
+            if (!isProductUrlValid) {
+                productUrlInput.focus();
+            }
+
             return;
         }
 

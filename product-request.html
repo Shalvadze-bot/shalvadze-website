@@ -175,9 +175,13 @@
                             <label for="product-request-url">Product URL <span class="request-optional">Optional</span></label>
                             <input id="product-request-url"
                                    name="productUrl"
-                                   type="url"
+                                   type="text"
                                    inputmode="url"
-                                   placeholder="https://example.com/product">
+                                   autocomplete="url"
+                                   placeholder="amazon.com/product"
+                                   aria-describedby="product-request-url-help product-request-url-error">
+                            <p class="request-url-help" id="product-request-url-help">Leave empty or enter a complete product link, for example amazon.com/product</p>
+                            <p class="request-url-error" id="product-request-url-error" aria-live="polite"></p>
                         </div>
 
                         <div class="request-field">

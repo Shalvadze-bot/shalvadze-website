@@ -379,6 +379,26 @@
     color: #888;
 }
 
+.request-url-help,
+.request-url-error {
+    margin: 7px 0 0;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.request-url-help {
+    color: #666;
+}
+
+.request-url-error {
+    display: none;
+    color: #9c1919;
+}
+
+.request-url-error.is-visible {
+    display: block;
+}
+
 .request-field input:not([type="file"]):hover,
 .request-field textarea:hover {
     border-color: #999;
