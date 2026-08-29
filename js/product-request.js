@@ -54,14 +54,47 @@ const normalizeAndValidateProductUrl = () => {
     return isValid;
 };
 
-const maximumReferenceSize = 10 * 1024 * 1024;
+const maximumReferenceSize = 5 * 1024 * 1024;
 const acceptedReferenceTypes = [
     "image/jpeg",
     "image/png",
-    "image/webp",
-    "image/gif",
-    "application/pdf"
+    "image/webp"
 ];
+const referenceTypeByExtension = {
+    jpg: "image/jpeg",
+    jpeg: "image/jpeg",
+    png: "image/png",
+    webp: "image/webp"
+};
+
+const getReferenceMimeType = (file) => {
+    if (acceptedReferenceTypes.includes(file.type)) {
+        return file.type;
+    }
+
+    if (file.type) {
+        return null;
+    }
+
+    const fileExtension = file.name.split(".").pop()?.toLowerCase();
+    return referenceTypeByExtension[fileExtension] || null;
+};
+
+const readReferenceFileAsBase64 = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+        if (typeof reader.result !== "string" || !reader.result.includes(",")) {
+            reject(new Error("The selected image could not be encoded."));
+            return;
+        }
+
+        resolve(reader.result.slice(reader.result.indexOf(",") + 1));
+    });
+    reader.addEventListener("error", () => reject(new Error("The selected image could not be read.")));
+    reader.addEventListener("abort", () => reject(new Error("Reading the selected image was cancelled.")));
+    reader.readAsDataURL(file);
+});
 
 const announceReferenceFile = (file) => {
     if (!file) {
@@ -71,17 +104,17 @@ const announceReferenceFile = (file) => {
         return true;
     }
 
-    if (!acceptedReferenceTypes.includes(file.type)) {
+    if (!getReferenceMimeType(file)) {
         productReferenceTitle.textContent = "Choose a supported file";
-        productReferenceMessage.textContent = "Please use JPG, PNG, WEBP, GIF or PDF.";
-        productReferenceInput.setCustomValidity("Please choose a supported image or PDF file.");
+        productReferenceMessage.textContent = "Please upload a JPG, PNG or WEBP image.";
+        productReferenceInput.setCustomValidity("Please upload a JPG, PNG or WEBP image.");
         return false;
     }
 
     if (file.size > maximumReferenceSize) {
         productReferenceTitle.textContent = "Choose a smaller file";
-        productReferenceMessage.textContent = "The selected file is larger than 10 MB.";
-        productReferenceInput.setCustomValidity("Please choose a file that is no larger than 10 MB.");
+        productReferenceMessage.textContent = "Please upload an image smaller than 5 MB.";
+        productReferenceInput.setCustomValidity("Please upload an image smaller than 5 MB.");
         return false;
     }
 
@@ -213,6 +246,16 @@ if (productRequestForm && productRequestStatus && productRequestSubmitButton && 
         productRequestSubmitButton.textContent = "SUBMITTING…";
 
         try {
+            const selectedReferenceFile = productReferenceInput?.files[0];
+
+            if (selectedReferenceFile) {
+                const productPhoto = await readReferenceFileAsBase64(selectedReferenceFile);
+
+                submissionData.set("productPhoto", productPhoto);
+                submissionData.set("productPhotoName", selectedReferenceFile.name);
+                submissionData.set("productPhotoType", getReferenceMimeType(selectedReferenceFile));
+            }
+
             const response = await fetch(productRequestEndpoint, {
                 method: "POST",
                 body: submissionData,
