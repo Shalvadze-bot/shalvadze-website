@@ -9,7 +9,39 @@ const productUrlInput = document.querySelector("#product-request-url");
 const productUrlError = document.querySelector("#product-request-url-error");
 
 const productRequestEndpoint = "https://script.google.com/macros/s/AKfycbyIEQy_iecLD6obZ2zZ1vG59F1oAljMOSQKM4zkazLWx6r32_yBpxucQH3-X6d8cYID/exec";
-const invalidProductUrlMessage = "Please enter a valid product link or leave this field empty.";
+const productRequestLanguage = document.documentElement.lang === "zh-Hans" ? "zh" : "en";
+const productRequestMessages = {
+    en: {
+        invalidUrl: "Please enter a valid product link or leave this field empty.",
+        chooseFile: "Choose a file or drag it here",
+        chooseSupportedFile: "Choose a supported file",
+        unsupportedFile: "Please upload a JPG, PNG or WEBP image.",
+        chooseSmallerFile: "Choose a smaller file",
+        oversizedFile: "Please upload an image smaller than 5 MB.",
+        fileSelected: "File selected.",
+        submitting: "SUBMITTING…",
+        success: "Thank you. Your product request has been submitted successfully. We’ll review your request and get back to you.",
+        error: "We couldn’t submit your product request. Please check your connection and try again.",
+        required: "Please fill out this field.",
+        invalidEmail: "Please enter a valid email address."
+    },
+    zh: {
+        invalidUrl: "请输入有效的产品链接，或将此字段留空。",
+        chooseFile: "选择文件或拖到此处",
+        chooseSupportedFile: "请选择支持的文件格式",
+        unsupportedFile: "请上传 JPG、PNG 或 WEBP 图片。",
+        chooseSmallerFile: "请选择较小的文件",
+        oversizedFile: "请上传小于 5 MB 的图片。",
+        fileSelected: "已选择文件。",
+        submitting: "正在提交…",
+        success: "感谢您。产品需求已成功提交。我们会审核您的需求并尽快与您联系。",
+        error: "产品需求未能提交。请检查网络连接后重试。",
+        required: "请填写此字段。",
+        invalidEmail: "请输入有效的电子邮箱地址。"
+    }
+};
+const requestCopy = productRequestMessages[productRequestLanguage];
+const invalidProductUrlMessage = requestCopy.invalidUrl;
 
 const normalizeProductUrl = (value) => {
     const trimmedValue = value.trim();
@@ -98,28 +130,28 @@ const readReferenceFileAsBase64 = (file) => new Promise((resolve, reject) => {
 
 const announceReferenceFile = (file) => {
     if (!file) {
-        productReferenceTitle.textContent = "Choose a file or drag it here";
+        productReferenceTitle.textContent = requestCopy.chooseFile;
         productReferenceMessage.textContent = "";
         productReferenceInput.setCustomValidity("");
         return true;
     }
 
     if (!getReferenceMimeType(file)) {
-        productReferenceTitle.textContent = "Choose a supported file";
-        productReferenceMessage.textContent = "Please upload a JPG, PNG or WEBP image.";
-        productReferenceInput.setCustomValidity("Please upload a JPG, PNG or WEBP image.");
+        productReferenceTitle.textContent = requestCopy.chooseSupportedFile;
+        productReferenceMessage.textContent = requestCopy.unsupportedFile;
+        productReferenceInput.setCustomValidity(requestCopy.unsupportedFile);
         return false;
     }
 
     if (file.size > maximumReferenceSize) {
-        productReferenceTitle.textContent = "Choose a smaller file";
-        productReferenceMessage.textContent = "Please upload an image smaller than 5 MB.";
-        productReferenceInput.setCustomValidity("Please upload an image smaller than 5 MB.");
+        productReferenceTitle.textContent = requestCopy.chooseSmallerFile;
+        productReferenceMessage.textContent = requestCopy.oversizedFile;
+        productReferenceInput.setCustomValidity(requestCopy.oversizedFile);
         return false;
     }
 
     productReferenceTitle.textContent = file.name;
-    productReferenceMessage.textContent = "File selected.";
+    productReferenceMessage.textContent = requestCopy.fileSelected;
     productReferenceMessage.style.color = "#555";
     productReferenceInput.setCustomValidity("");
     return true;
@@ -196,6 +228,22 @@ if (productRequestForm && productRequestStatus && productRequestSubmitButton && 
     productRequestForm.addEventListener("focusin", markProductRequestStarted);
     productRequestForm.addEventListener("input", markProductRequestStarted);
 
+    productRequestForm.querySelectorAll("[required]").forEach((field) => {
+        field.addEventListener("invalid", () => {
+            field.setCustomValidity("");
+
+            if (field.validity.valueMissing) {
+                field.setCustomValidity(requestCopy.required);
+            } else if (field.validity.typeMismatch) {
+                field.setCustomValidity(requestCopy.invalidEmail);
+            }
+        });
+
+        field.addEventListener("input", () => {
+            field.setCustomValidity("");
+        });
+    });
+
     const showSubmissionStatus = (message, state) => {
         productRequestStatus.textContent = message;
         productRequestStatus.classList.remove("is-error", "is-success");
@@ -243,7 +291,7 @@ if (productRequestForm && productRequestStatus && productRequestSubmitButton && 
         isSubmitting = true;
         productRequestSubmitButton.disabled = true;
         productRequestSubmitButton.setAttribute("aria-busy", "true");
-        productRequestSubmitButton.textContent = "SUBMITTING…";
+        productRequestSubmitButton.textContent = requestCopy.submitting;
 
         try {
             const selectedReferenceFile = productReferenceInput?.files[0];
@@ -278,7 +326,7 @@ if (productRequestForm && productRequestStatus && productRequestSubmitButton && 
 
             dispatchAnalyticsHook(productRequestForm.dataset.gaSubmitEvent);
             showSubmissionStatus(
-                "Thank you. Your product request has been submitted successfully. We’ll review your request and get back to you.",
+                requestCopy.success,
                 "is-success"
             );
             productRequestForm.reset();
@@ -291,7 +339,7 @@ if (productRequestForm && productRequestStatus && productRequestSubmitButton && 
         } catch (error) {
             console.error("Product request submission error:", error);
             showSubmissionStatus(
-                "We couldn’t submit your product request. Please check your connection and try again.",
+                requestCopy.error,
                 "is-error"
             );
         } finally {

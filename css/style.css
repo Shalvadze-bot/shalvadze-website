@@ -237,7 +237,10 @@ nav {
 
 .language-current {
     display: inline-block;
+    color: #111;
     font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .language-option {
@@ -245,6 +248,32 @@ nav {
     color: #111;
     font-size: 14px;
     white-space: nowrap;
+    text-decoration: none;
+    opacity: 0.62;
+    transition: opacity 0.2s ease;
+}
+
+.language-option:hover,
+.language-option:focus-visible {
+    opacity: 1;
+}
+
+.language-current[aria-current="page"] {
+    cursor: default;
+}
+
+html[lang="zh-Hans"] body {
+    font-family: "DM Sans", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+}
+
+html[lang="zh-Hans"] .nav-links a {
+    letter-spacing: 0.02em;
+}
+
+html[lang="zh-Hans"] .hero h1,
+html[lang="zh-Hans"] .about-hero h1,
+html[lang="zh-Hans"] .request-hero h1 {
+    line-height: 1.12;
 }
 
 #about,
