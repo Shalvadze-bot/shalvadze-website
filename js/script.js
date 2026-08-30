@@ -3,6 +3,10 @@ const navLinks = document.querySelector(".nav-links");
 const backToTop = document.querySelector(".back-to-top");
 const mobileNavigation = window.matchMedia("(max-width: 1024px)");
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const interfaceLanguage = document.documentElement.lang === "zh-Hans" ? "zh" : "en";
+const navigationLabels = interfaceLanguage === "zh"
+    ? { open: "打开导航菜单", close: "关闭导航菜单" }
+    : { open: "Open navigation menu", close: "Close navigation menu" };
 
 if (hamburger && navLinks) {
     const setMenuState = (isOpen) => {
@@ -11,7 +15,7 @@ if (hamburger && navLinks) {
         hamburger.setAttribute("aria-expanded", String(isOpen));
         hamburger.setAttribute(
             "aria-label",
-            isOpen ? "Close navigation menu" : "Open navigation menu"
+            isOpen ? navigationLabels.close : navigationLabels.open
         );
     };
 
