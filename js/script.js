@@ -9,14 +9,50 @@ const navigationLabels = interfaceLanguage === "zh"
     : { open: "Open navigation menu", close: "Close navigation menu" };
 
 if (hamburger && navLinks) {
+    const logoLink = document.querySelector(".logo a");
+    let menuScrollPosition = 0;
+
+    const setPageScrollLock = (shouldLock) => {
+        if (shouldLock && !document.body.classList.contains("navigation-open")) {
+            menuScrollPosition = window.scrollY;
+            document.body.style.top = `-${menuScrollPosition}px`;
+            document.body.classList.add("navigation-open");
+            return;
+        }
+
+        if (!shouldLock && document.body.classList.contains("navigation-open")) {
+            const previousScrollBehavior = document.documentElement.style.scrollBehavior;
+
+            document.body.classList.remove("navigation-open");
+            document.body.style.top = "";
+            document.documentElement.style.scrollBehavior = "auto";
+            window.scrollTo(0, menuScrollPosition);
+            document.documentElement.style.scrollBehavior = previousScrollBehavior;
+        }
+    };
+
     const setMenuState = (isOpen) => {
-        navLinks.classList.toggle("active", isOpen);
-        hamburger.classList.toggle("active", isOpen);
-        hamburger.setAttribute("aria-expanded", String(isOpen));
+        const shouldOpen = isOpen && mobileNavigation.matches;
+
+        navLinks.classList.toggle("active", shouldOpen);
+        hamburger.classList.toggle("active", shouldOpen);
+        hamburger.setAttribute("aria-expanded", String(shouldOpen));
         hamburger.setAttribute(
             "aria-label",
-            isOpen ? navigationLabels.close : navigationLabels.open
+            shouldOpen ? navigationLabels.close : navigationLabels.open
         );
+
+        if (mobileNavigation.matches) {
+            navLinks.setAttribute("aria-hidden", String(!shouldOpen));
+        } else {
+            navLinks.removeAttribute("aria-hidden");
+        }
+
+        setPageScrollLock(shouldOpen);
+
+        if (shouldOpen) {
+            window.requestAnimationFrame(() => navLinks.querySelector("a")?.focus());
+        }
     };
 
     hamburger.addEventListener("click", () => {
@@ -32,6 +68,17 @@ if (hamburger && navLinks) {
         if (event.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
             setMenuState(false);
             hamburger.focus();
+            return;
+        }
+
+        if (event.key === "Tab" && hamburger.getAttribute("aria-expanded") === "true") {
+            if (event.shiftKey && document.activeElement === logoLink) {
+                event.preventDefault();
+                hamburger.focus();
+            } else if (!event.shiftKey && document.activeElement === hamburger) {
+                event.preventDefault();
+                logoLink?.focus();
+            }
         }
     });
 
@@ -51,6 +98,8 @@ if (hamburger && navLinks) {
     } else {
         mobileNavigation.addListener(() => setMenuState(false));
     }
+
+    setMenuState(false);
 }
 
 if (backToTop) {

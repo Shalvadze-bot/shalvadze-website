@@ -88,6 +88,42 @@ nav {
     width: 100%;
 }
 
+.nav-links .nav-cta {
+    display: inline-flex;
+    min-height: 40px;
+    padding: 9px 18px;
+    border: 1px solid #171512;
+    border-radius: 999px;
+    background: #171512;
+    color: #f5eee4;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-links .nav-cta::after,
+.nav-links .language-selector a::after {
+    display: none;
+}
+
+.nav-links .nav-cta:hover,
+.nav-links .nav-cta:focus-visible {
+    background: transparent;
+    color: #171512;
+}
+
+.nav-cta-arrow,
+.nav-brand-detail {
+    display: none;
+}
+
+body.navigation-open {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+}
+
 .language-selector {
     position: relative;
     display: flex;
@@ -2065,6 +2101,21 @@ textarea{
     font-size: 14px;
 }
 
+.warm-home-page .nav-links .nav-cta,
+.about-page .nav-links .nav-cta,
+.product-request-page .nav-links .nav-cta {
+    color: #f5eee4;
+}
+
+.warm-home-page .nav-links .nav-cta:hover,
+.warm-home-page .nav-links .nav-cta:focus-visible,
+.about-page .nav-links .nav-cta:hover,
+.about-page .nav-links .nav-cta:focus-visible,
+.product-request-page .nav-links .nav-cta:hover,
+.product-request-page .nav-links .nav-cta:focus-visible {
+    color: #171512;
+}
+
 .warm-home-page .language-selector,
 .about-page .language-selector,
 .product-request-page .language-selector { gap: 18px; }
@@ -2177,24 +2228,147 @@ textarea{
 
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 1002;
     }
 
     .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
         width: 100%;
-        background: white;
-        display: none;
+        height: 100vh;
+        height: 100dvh;
+        padding: clamp(160px, 22.5svh, 214px) 8% clamp(20px, 4svh, 36px);
+        overflow-y: auto;
+        background: #f5eee4;
         flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        box-shadow: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.18s ease, visibility 0.18s ease;
+    }
+
+    .warm-home-page .nav-links,
+    .about-page .nav-links,
+    .product-request-page .nav-links {
+        gap: 0;
+    }
+
+    .warm-home-page .nav-links > a,
+    .about-page .nav-links > a,
+    .product-request-page .nav-links > a {
+        display: flex;
+        width: 100%;
+        min-height: clamp(82px, 11svh, 100px);
+        padding: clamp(18px, 2.5svh, 24px) 0;
+        border-bottom: 1px solid rgba(23, 21, 18, 0.22);
+        color: #171512;
         align-items: center;
-        padding: 32px 0;
-        gap: 25px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        font-size: clamp(32px, 9vw, 38px);
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        line-height: 1;
+    }
+
+    .warm-home-page .nav-links > a::after,
+    .about-page .nav-links > a::after,
+    .product-request-page .nav-links > a::after {
+        display: none;
+    }
+
+    .warm-home-page .nav-links .nav-cta,
+    .about-page .nav-links .nav-cta,
+    .product-request-page .nav-links .nav-cta,
+    .warm-home-page .nav-links .nav-cta:hover,
+    .warm-home-page .nav-links .nav-cta:focus-visible,
+    .about-page .nav-links .nav-cta:hover,
+    .about-page .nav-links .nav-cta:focus-visible,
+    .product-request-page .nav-links .nav-cta:hover,
+    .product-request-page .nav-links .nav-cta:focus-visible {
+        min-width: 0;
+        min-height: clamp(82px, 11svh, 100px);
+        padding: clamp(18px, 2.5svh, 24px) 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        color: #171512;
+        justify-content: flex-start;
+        font-size: clamp(32px, 9vw, 38px);
+        font-weight: 600;
+    }
+
+    .nav-cta-arrow {
+        display: inline-block;
+        margin-left: auto;
+        font-size: 0.82em;
+        font-weight: 300;
+        line-height: 1;
+    }
+
+    .nav-links .language-selector {
+        width: 100%;
+        margin-top: auto;
+        padding-top: clamp(34px, 5svh, 48px);
+        border-top: 1px solid rgba(23, 21, 18, 0.22);
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .nav-links .language-selector::before {
+        content: "|";
+        position: absolute;
+        left: 50%;
+        color: rgba(23, 21, 18, 0.38);
+        font-size: 14px;
+        transform: translateX(-50%);
+    }
+
+    .nav-links .language-selector a {
+        display: inline-flex;
+        width: 44px;
+        min-height: 44px;
+        color: #171512;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        letter-spacing: 0.05em;
+    }
+
+    .nav-links .language-selector a span[aria-hidden="true"] {
+        display: none;
     }
 
     .nav-links.active {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .nav-brand-detail {
+        display: block;
+        margin: clamp(42px, 6.5svh, 62px) 0 0;
+        color: rgba(23, 21, 18, 0.6);
+        font-size: clamp(9px, 1.35vw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.19em;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .navigation-open header {
+        min-height: 88px;
+        padding: 18px 8%;
+        border-radius: 0;
+    }
+
+    header .logo {
+        position: relative;
+        z-index: 1002;
     }
 
     header {
@@ -2226,6 +2400,33 @@ textarea{
     #products,
     #contact {
         scroll-margin-top: 100px;
+    }
+}
+
+@media (max-width: 1024px) and (max-height: 600px) {
+    .nav-links {
+        padding-top: clamp(88px, 20svh, 120px);
+        padding-bottom: 14px;
+    }
+
+    .warm-home-page .nav-links > a,
+    .about-page .nav-links > a,
+    .product-request-page .nav-links > a,
+    .warm-home-page .nav-links .nav-cta,
+    .about-page .nav-links .nav-cta,
+    .product-request-page .nav-links .nav-cta {
+        min-height: 52px;
+        padding-block: 8px;
+        font-size: 26px;
+    }
+
+    .nav-links .language-selector {
+        padding-top: 8px;
+    }
+
+    .nav-brand-detail {
+        margin-top: 10px;
+        font-size: 8px;
     }
 }
 
