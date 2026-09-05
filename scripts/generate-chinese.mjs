@@ -21,12 +21,21 @@ const commonTranslations = new Map([
     [">For Business Inquiries<", ">商务咨询<"],
     ["© 2026 SHALVADZE. All rights reserved.", "© 2026 SHALVADZE。保留所有权利。"],
     ["SHALVADZE footer", "SHALVADZE 页脚"],
-    ["Legal information", "法律信息"],
-    ["Back to top", "返回顶部"]
+    ["Legal information", "法律信息"]
 ]);
 
 const pageTranslations = {
     "index.html": new Map([
+        ["HOW CAN WE HELP?", "我们能如何帮助您？"],
+        ["Tell us what you’re working on. Send a product request, start a conversation, or reach us directly by email.", "告诉我们您正在开展的业务。提交产品需求、与我们聊聊，或直接通过电子邮件联系我们。"],
+        ["Quick questions?<br>Drop us a message<br>and we’ll get back to you.", "有简单问题？<br>给我们留言，<br>我们会与您联系。"],
+        ["Have a detailed inquiry?<br>Share your requirements<br>and we’ll get back to you.", "有详细的采购咨询？<br>请分享您的需求，<br>我们会与您联系。"],
+        ['aria-label="Our Expertise"', 'aria-label="我们的专长"'],
+        ['aria-label="Other Categories"', 'aria-label="其他品类"'],
+        ["Quality Products<br>for Your Business", "为您的业务<br>采购优质产品"],
+        ["School &amp; Office Products", "学校与办公用品"],
+        ["PP plastic stationery solutions for education and modern workplaces.", "为教育和现代办公场所提供 PP 塑料文具解决方案。"],
+        ["We work with trusted manufacturers to source a wide range of products across different categories.", "我们与值得信赖的制造商合作，采购涵盖多种品类的产品。"],
         ["REAL PEOPLE. REAL PRODUCTS. REAL RESULTS.", "真实团队。真实产品。切实成果。"],
         ["Your Business in China.<br>On the Ground.", "您的中国业务，<br>我们扎根当地。"],
         ["From sourcing and supplier research to quality control and logistics, we help you manage business in China with confidence.", "从采购、供应商调研到质量控制与物流，我们帮助您满怀信心地管理在中国的业务。"],

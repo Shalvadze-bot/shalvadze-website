@@ -1,8 +1,6 @@
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
-const backToTop = document.querySelector(".back-to-top");
 const mobileNavigation = window.matchMedia("(max-width: 1024px)");
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const interfaceLanguage = document.documentElement.lang === "zh-Hans" ? "zh" : "en";
 const navigationLabels = interfaceLanguage === "zh"
     ? { open: "打开导航菜单", close: "关闭导航菜单" }
@@ -102,35 +100,6 @@ if (hamburger && navLinks) {
     setMenuState(false);
 }
 
-if (backToTop) {
-    let scrollUpdatePending = false;
-
-    const updateBackToTop = () => {
-        const isVisible = window.scrollY > 400;
-
-        backToTop.classList.toggle("visible", isVisible);
-        backToTop.setAttribute("aria-hidden", String(!isVisible));
-        backToTop.tabIndex = isVisible ? 0 : -1;
-        scrollUpdatePending = false;
-    };
-
-    window.addEventListener("scroll", () => {
-        if (!scrollUpdatePending) {
-            window.requestAnimationFrame(updateBackToTop);
-            scrollUpdatePending = true;
-        }
-    }, { passive: true });
-
-    backToTop.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: reducedMotion.matches ? "auto" : "smooth"
-        });
-    });
-
-    updateBackToTop();
-}
-
 const productTabs = Array.from(document.querySelectorAll("[data-products-panel]"));
 const productPanels = Array.from(document.querySelectorAll("[data-products-content]"));
 
@@ -199,3 +168,92 @@ if (homepageHero) {
     window.addEventListener("resize", updateHeroNavigation);
     updateHeroNavigation();
 }
+
+// Keep the approved desktop grid; enhance the mobile services section in place.
+(() => {
+    const section = document.querySelector('.warm-home-page #services');
+    if (!section) return;
+    const grid = section.querySelector('.services-grid');
+    const cards = [...grid.querySelectorAll('.service-card')];
+    const mobile = window.matchMedia('(max-width: 800px)');
+    const chinese = document.documentElement.lang.startsWith('zh');
+    let active = 0;
+    let gesture = null;
+    let suppressClick = false;
+    const controls = document.createElement('div');
+    controls.className = 'services-carousel-controls';
+    const button = (label, text, action, className = '') => {
+        const element = document.createElement('button');
+        element.type = 'button';
+        element.className = className;
+        element.setAttribute('aria-label', label);
+        element.textContent = text;
+        element.addEventListener('click', action);
+        controls.append(element);
+        return element;
+    };
+    button(chinese ? '上一个服务模式' : 'Previous business model', '←', () => select(active - 1));
+    const dots = cards.map((card, index) => button(
+        `${chinese ? '显示' : 'Show'} ${card.querySelector('h3').textContent}`,
+        '', () => select(index), 'services-dot'
+    ));
+    button(chinese ? '下一个服务模式' : 'Next business model', '→', () => select(active + 1));
+    grid.after(controls);
+    const status = document.createElement('span');
+    status.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap';
+    status.setAttribute('aria-live', 'polite');
+    status.setAttribute('aria-atomic', 'true');
+    controls.append(status);
+    function select(index, announce = true) {
+        active = (index + cards.length) % cards.length;
+        cards.forEach((card, i) => {
+            card.dataset.position = i === active ? 'active' : i === (active + 1) % cards.length ? 'next' : 'previous';
+            if (mobile.matches) card.setAttribute('aria-hidden', String(i !== active));
+            else card.removeAttribute('aria-hidden');
+            dots[i].setAttribute('aria-current', String(i === active));
+        });
+        if (announce) status.textContent = `${active + 1} / ${cards.length}: ${cards[active].querySelector('h3').textContent}`;
+    }
+    function sync() {
+        section.classList.toggle('carousel-enabled', mobile.matches);
+        if (mobile.matches) {
+            grid.tabIndex = 0;
+            grid.setAttribute('role', 'group');
+            grid.setAttribute('aria-roledescription', chinese ? '轮播' : 'carousel');
+            grid.setAttribute('aria-label', chinese ? '服务模式，使用左右方向键浏览' : 'Business models, use left and right arrow keys to explore');
+        } else {
+            ['tabindex', 'role', 'aria-roledescription', 'aria-label'].forEach(name => grid.removeAttribute(name));
+        }
+        select(active, false);
+    }
+    section.addEventListener('keydown', event => {
+        if (!mobile.matches || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        select(event.key === 'Home' ? 0 : event.key === 'End' ? cards.length - 1 : active + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    grid.addEventListener('pointerdown', event => {
+        if (!mobile.matches || !event.isPrimary || event.button !== 0) return;
+        gesture = { x: event.clientX, y: event.clientY, id: event.pointerId };
+        suppressClick = false;
+        grid.setPointerCapture(event.pointerId);
+    });
+    grid.addEventListener('pointerup', event => {
+        if (!gesture || gesture.id !== event.pointerId) return;
+        const dx = event.clientX - gesture.x;
+        const dy = event.clientY - gesture.y;
+        gesture = null;
+        if (Math.abs(dx) > 35 && Math.abs(dx) > Math.abs(dy)) {
+            suppressClick = true;
+            select(active + (dx < 0 ? 1 : -1));
+        } else {
+            const card = document.elementFromPoint(event.clientX, event.clientY)?.closest('.service-card');
+            if (card && cards.includes(card)) select(cards.indexOf(card));
+        }
+    });
+    grid.addEventListener('pointercancel', () => { gesture = null; });
+    grid.addEventListener('click', event => {
+        if (suppressClick) { event.preventDefault(); suppressClick = false; }
+    }, true);
+    mobile.addEventListener('change', sync);
+    sync();
+})();
