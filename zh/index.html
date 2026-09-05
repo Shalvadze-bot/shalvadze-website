@@ -207,12 +207,13 @@
                 <div class="products-layout">
                     <div class="products-overview">
                         <p class="products-eyebrow">我们采购的产品</p>
-                        <h2 id="products-title">我们为您的业务<br>采购哪些产品</h2>
+                        <h2 id="products-title"><span class="products-desktop-title">我们为您的业务<br>采购哪些产品</span><span class="products-mobile-intro">为您的业务<br>采购优质产品</span></h2>
                         <p class="products-description">我们专注于 PP 塑料文具，也从中国可靠的制造商采购多种优质产品。</p>
 
                         <div class="product-selectors" role="tablist" aria-label="产品类别">
                             <button class="product-selector is-active"
                                     id="products-tab-expertise"
+                                    aria-label="我们的专长"
                                     type="button"
                                     role="tab"
                                     aria-selected="true"
@@ -233,6 +234,7 @@
                             </button>
                             <button class="product-selector"
                                     id="products-tab-other"
+                                    aria-label="其他品类"
                                     type="button"
                                     role="tab"
                                     aria-selected="false"
@@ -278,6 +280,7 @@
                              aria-labelledby="products-tab-expertise"
                             data-products-content="expertise">
                             <p class="products-panel-label">我们的专长</p>
+                            <div class="products-mobile-intro"><h3>学校与办公用品</h3><p>为教育和现代办公场所提供 PP 塑料文具解决方案。</p></div>
                             <div class="expertise-viewport">
                                     <article class="expertise-slide">
                                         <div class="expertise-visual">
@@ -360,6 +363,7 @@
                              data-products-content="other"
                              hidden>
                             <p class="products-panel-label">其他类别</p>
+                            <div class="products-mobile-intro"><h3>更多可采购产品</h3><p>我们与值得信赖的制造商合作，采购涵盖多种品类的产品。</p></div>
                             <div class="other-categories-grid">
                                 <article class="other-category-card">
                                     <div class="other-category-visual">
@@ -429,9 +433,9 @@
 
             <div class="contact-desktop-header">
                 <p class="contact-desktop-label">联系我们</p>
-                <h2 class="contact-desktop-title" id="contact-desktop-title">欢迎联系</h2>
+                <h2 class="contact-desktop-title" id="contact-desktop-title">我们能如何帮助您？</h2>
                 <p class="contact-desktop-intro">
-                    期待认识您。告诉我们您在寻找什么，我们会一起梳理最合适的支持方式。
+                    告诉我们您正在开展的业务。提交产品需求、与我们聊聊，或直接通过电子邮件联系我们。
                 </p>
             </div>
 
@@ -445,15 +449,14 @@
                     </div>
                     <h3>在线沟通</h3>
                     <p class="contact-option-description">
-                        有简单问题，或想先聊聊想法？给我们留言，我们通常会在几小时内回复。
+                        有简单问题？<br>给我们留言，<br>我们会与您联系。
                     </p>
                     <div class="contact-option-actions">
-                        <button class="contact-option-button contact-option-button--primary"
+                        <button class="contact-option-button contact-option-button--outline"
                                 type="button"
                                 data-contact-action="chat">
                             开始沟通
                         </button>
-                        <p class="contact-option-caption">通常在 2–4 小时内回复</p>
                     </div>
                 </article>
 
@@ -466,18 +469,17 @@
                     </div>
                     <h3>发送邮件</h3>
                     <p class="contact-option-description">
-                        如需详细咨询，请发送您的需求，我们会在 24 小时内回复并提供针对性报价。
+                        有详细的采购咨询？<br>请分享您的需求，<br>我们会与您联系。
                     </p>
                     <div class="contact-option-actions">
                         <a class="contact-option-button contact-option-button--outline"
                            href="mailto:info@shalvadze.com">
                             写邮件
                         </a>
-                        <p class="contact-option-caption">24 小时内回复</p>
                     </div>
                 </article>
 
-                <article class="contact-option-card">
+                <article class="contact-option-card contact-option-card--request">
                     <div class="contact-option-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" focusable="false">
                             <path d="M6 3h8l4 4v14H6Z"/>
@@ -490,12 +492,11 @@
                         告诉我们所需产品、数量、目标价格和目的地。我们会审核您的需求并与您联系。
                     </p>
                     <div class="contact-option-actions">
-                        <a class="contact-option-button contact-option-button--outline"
+                        <a class="contact-option-button contact-option-button--primary"
                            href="product-request.html"
                            data-product-request-link>
-                            提交需求
+                            提交需求 <span aria-hidden="true">→</span>
                         </a>
-                        <p class="contact-option-caption">告诉我们您的需求，后续交给我们。</p>
                     </div>
                 </article>
 
@@ -503,50 +504,7 @@
 
             <div class="contact-direct">
                 <p>希望直接联系我们？</p>
-                <a href="mailto:info@shalvadze.com">info@shalvadze.com</a>
-            </div>
-
-        </div>
-
-        <div class="contact-mobile" aria-labelledby="contact-mobile-title">
-
-            <p class="contact-mobile-label">联系我们</p>
-            <h2 class="contact-mobile-title" id="contact-mobile-title">欢迎联系</h2>
-            <p class="contact-mobile-intro">请选择您方便的联系方式。</p>
-
-            <div class="contact-mobile-actions">
-
-                <button class="contact-mobile-action"
-                        type="button"
-                        data-contact-action="chat">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M20 11.5c0 4.14-3.58 7.5-8 7.5-1.12 0-2.18-.22-3.14-.6L4 21l1.35-4.05A7.18 7.18 0 0 1 4 11.5C4 7.36 7.58 4 12 4s8 3.36 8 7.5Z"/>
-                        <path d="M9 11.5h.01M12 11.5h.01M15 11.5h.01"/>
-                    </svg>
-                    <span>在线沟通</span>
-                    <span class="contact-mobile-arrow" aria-hidden="true">→</span>
-                </button>
-
-                <a class="contact-mobile-action" href="mailto:info@shalvadze.com">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <rect x="3" y="5" width="18" height="14" rx="1.5"/>
-                        <path d="m4 7 8 6 8-6"/>
-                    </svg>
-                    <span>发送邮件</span>
-                    <span class="contact-mobile-arrow" aria-hidden="true">→</span>
-                </a>
-
-                <a class="contact-mobile-action"
-                   href="product-request.html"
-                   data-product-request-link>
-                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                        <path d="M6 3h8l4 4v14H6Z"/>
-                        <path d="M14 3v5h4M9 13h6M9 17h6"/>
-                    </svg>
-                    <span>产品需求</span>
-                    <span class="contact-mobile-arrow" aria-hidden="true">→</span>
-                </a>
-
+                <a href="mailto:info@shalvadze.com"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg>info@shalvadze.com</a>
             </div>
 
         </div>
@@ -640,10 +598,6 @@
         <div class="footer-grid">
 
             <section class="footer-brand" aria-label="SHALVADZE">
-                <img class="footer-brand-icon"
-                     src="../images/SHALVADZE_Icon_White.svg?v=20260815-footer"
-                     height="44"
-                     alt="SHALVADZE">
                 <p class="footer-tagline">
                     可靠的采购服务，清晰的沟通。<br>
                     为您在中国开展业务提供支持。
@@ -658,12 +612,6 @@
                 </ul>
             </section>
 
-            <section class="footer-section">
-                <h2 class="footer-heading">商务咨询</h2>
-                <address class="footer-contact">
-                    <a href="mailto:info@shalvadze.com">info@shalvadze.com</a>
-                </address>
-            </section>
 
         </div>
 
@@ -674,13 +622,6 @@
     </div>
 
     <div class="footer-mobile" aria-label="SHALVADZE 页脚">
-        <img class="footer-mobile-logo"
-             src="../images/SHALVADZE_Icon_White.svg?v=20260815-footer"
-             height="40"
-             alt="SHALVADZE">
-        <a class="footer-mobile-email" href="mailto:info@shalvadze.com">
-            info@shalvadze.com
-        </a>
         <div class="footer-mobile-legal" aria-label="法律信息">
             <span>隐私政策</span>
             <span aria-hidden="true">·</span>
@@ -691,13 +632,6 @@
 
 </footer>
 
-<button class="back-to-top"
-        type="button"
-        aria-label="返回顶部"
-        aria-hidden="true"
-        tabindex="-1">
-    <span aria-hidden="true">↑</span>
-</button>
 
 <script src="../js/analytics.js?v=20260831"></script>
 <script src="../js/language.js?v=20260830"></script>
