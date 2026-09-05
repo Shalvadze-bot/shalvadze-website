@@ -27,6 +27,16 @@ const commonTranslations = new Map([
 
 const pageTranslations = {
     "index.html": new Map([
+        ["REAL PEOPLE. REAL PRODUCTS. REAL RESULTS.", "真实团队。真实产品。切实成果。"],
+        ["Your Business in China.<br>On the Ground.", "您的中国业务，<br>我们扎根当地。"],
+        ["From sourcing and supplier research to quality control and logistics, we help you manage business in China with confidence.", "从采购、供应商调研到质量控制与物流，我们帮助您满怀信心地管理在中国的业务。"],
+        ["Product samples and stationery being inspected at a factory worktable", "在工厂工作台上检查产品样品与文具"],
+        [">SOURCING<", ">采购<"],
+        [">QUALITY CONTROL<", ">质量控制<"],
+        [">LOGISTICS<", ">物流<"],
+        ["Find the right suppliers", "寻找合适的供应商"],
+        ["Ensure consistent quality", "确保品质稳定"],
+        ["From China to your market", "从中国送达您的市场"],
         ["SHALVADZE | Trading & Sourcing", "SHALVADZE | 贸易与采购服务"],
         ["SHALVADZE is a Hong Kong-based sourcing and business support company helping businesses find reliable suppliers, manage sourcing, quality control and international trade from China.", "SHALVADZE 是一家总部位于香港的采购与商务支持公司，帮助企业在中国寻找可靠供应商，并提供采购管理、质量控制及国际贸易支持。"],
         ["China sourcing, sourcing company Hong Kong, supplier research, factory sourcing, quality control China, international trading, PP plastic stationery, office products", "中国采购，香港采购公司，供应商调研，工厂采购，中国质量控制，国际贸易，PP塑料文具，办公用品"],
@@ -36,6 +46,7 @@ const pageTranslations = {
         ["Building Trust.<br>\n                    Creating Value.", "建立信任。<br>\n                    创造价值。"],
         ["SHALVADZE is your trusted partner for sourcing,\n                    quality control, and logistics. We connect businesses\n                    with reliable suppliers and deliver results.", "SHALVADZE 是您值得信赖的采购、\n                    质量控制与物流合作伙伴。我们帮助企业\n                    对接可靠供应商，推动项目顺利落地。"],
         ["About Us", "了解我们"],
+        ['Get a Quote <span aria-hidden="true">→</span>', '申请报价 <span aria-hidden="true">→</span>'],
         ["ABOUT SHALVADZE", "关于 SHALVADZE"],
         ["Building connections across markets.", "连接市场，建立合作。"],
         ["SHALVADZE is a Hong Kong-based trading and sourcing company connecting businesses with trusted manufacturing partners across international markets.", "SHALVADZE 是一家总部位于香港的贸易与采购公司，帮助企业与不同市场中值得信赖的制造伙伴建立联系。"],

@@ -186,3 +186,16 @@ if (productTabs.length > 0 && productPanels.length > 0) {
         });
     });
 }
+
+// Keep the existing fixed navigation readable once it leaves the homepage hero.
+const homepageHero = document.querySelector(".warm-home-page .hero");
+if (homepageHero) {
+    const homepageHeader = document.querySelector("header");
+    const updateHeroNavigation = () => {
+        document.body.classList.toggle("hero-past",
+            window.scrollY >= homepageHero.offsetTop + homepageHero.offsetHeight - homepageHeader.offsetHeight);
+    };
+    window.addEventListener("scroll", updateHeroNavigation, { passive: true });
+    window.addEventListener("resize", updateHeroNavigation);
+    updateHeroNavigation();
+}
