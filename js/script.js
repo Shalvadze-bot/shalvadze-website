@@ -154,6 +154,38 @@ if (productTabs.length > 0 && productPanels.length > 0) {
             activateProductsPanel(productTabs[nextIndex].dataset.productsPanel, true);
         });
     });
+
+    const categoryLinks = Array.from(document.querySelectorAll("[data-product-target]"));
+    const scrollToProduct = (link, shouldFocus = false) => {
+        const target = document.getElementById(link.hash.slice(1));
+        if (!target) return;
+
+        activateProductsPanel(link.dataset.productTarget);
+        if (shouldFocus) target.focus({ preventScroll: true });
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+    };
+
+    categoryLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            history.pushState(null, "", link.hash);
+            scrollToProduct(link, true);
+        });
+    });
+
+    const initialCategoryLink = categoryLinks.find((link) => link.hash === window.location.hash);
+    if (initialCategoryLink) {
+        activateProductsPanel(initialCategoryLink.dataset.productTarget);
+        window.requestAnimationFrame(() => {
+            document.getElementById(initialCategoryLink.hash.slice(1))?.scrollIntoView({ behavior: "auto", block: "center" });
+        });
+    }
+
+    window.addEventListener("hashchange", () => {
+        const currentLink = categoryLinks.find((link) => link.hash === window.location.hash);
+        if (currentLink) scrollToProduct(currentLink);
+    });
 }
 
 // Keep the existing fixed navigation readable once it leaves the homepage hero.

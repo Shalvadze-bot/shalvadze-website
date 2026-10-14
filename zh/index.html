@@ -205,12 +205,15 @@
         <section id="products" class="products-section" aria-labelledby="products-title">
             <div class="products-container">
                 <div class="products-layout">
-                    <div class="products-overview">
-                        <p class="products-eyebrow">我们采购的产品</p>
-                        <h2 id="products-title"><span class="products-desktop-title">我们为您的业务<br>采购哪些产品</span><span class="products-mobile-intro">为您的业务<br>采购优质产品</span></h2>
-                        <p class="products-description">我们专注于 PP 塑料文具，也从中国可靠的制造商采购多种优质产品。</p>
+                    <div class="products-header">
+                        <div class="products-overview">
+                            <p class="products-eyebrow">我们采购的产品</p>
+                            <h2 id="products-title"><span class="products-desktop-title">我们为您的业务<br>采购哪些产品</span><span class="products-mobile-intro">为您的业务<br>采购优质产品</span></h2>
 
-                        <div class="product-selectors" role="tablist" aria-label="产品类别">
+                        </div>
+                        <p class="products-description">我们专注于 PP 塑料文具，也从中国可靠的制造商采购多种优质产品。</p>
+                    </div>
+                    <div class="product-selectors" role="tablist" aria-label="产品类别">
                             <button class="product-selector is-active"
                                     id="products-tab-expertise"
                                     aria-label="我们的专长"
@@ -256,23 +259,17 @@
                                 </span>
                                 <span class="product-selector-arrow" aria-hidden="true">→</span>
                             </button>
-                        </div>
-
-                        <aside class="products-help-card" aria-label="产品采购协助">
-                            <span class="products-help-icon" aria-hidden="true">
-                                <svg viewBox="0 0 48 48" focusable="false">
-                                    <path d="m8 26 7-7 8 3 8-3 9 8-7 7-8-5-6 5Z"></path>
-                                    <path d="m8 26-4-4 8-9 7 5M40 27l4-4-8-9-7 5M18 31l4 4M23 29l5 4M28 27l5 4"></path>
-                                </svg>
-                            </span>
-                            <span class="products-help-copy">
-                                <strong>没有找到您需要的产品？</strong>
-                                <span>联系我们，我们会协助您采购。</span>
-                                <a href="#contact" data-contact-method="contact_section">联系我们的团队 <span aria-hidden="true">→</span></a>
-                            </span>
-                        </aside>
                     </div>
-
+                    <nav class="product-category-nav" aria-label="产品分类">
+                        <ul class="product-category-links">
+                            <li><a href="#product-school" data-product-target="expertise">学校用品</a></li>
+                            <li><a href="#product-office" data-product-target="expertise">办公用品</a></li>
+                            <li><a href="#product-textile" data-product-target="other">纺织品</a></li>
+                            <li><a href="#product-pet-supplies" data-product-target="other">宠物用品</a></li>
+                            <li><a href="#product-accessories" data-product-target="other">配饰</a></li>
+                            <li><a href="#product-toys" data-product-target="other">玩具</a></li>
+                        </ul>
+                    </nav>
                     <div class="products-content">
                         <div class="products-panel is-active"
                              id="products-panel-expertise"
@@ -282,7 +279,7 @@
                             <p class="products-panel-label">我们的专长</p>
                             <div class="products-mobile-intro"><h3>学校与办公用品</h3><p>为教育和现代办公场所提供 PP 塑料文具解决方案。</p></div>
                             <div class="expertise-viewport">
-                                    <article class="expertise-slide">
+                                    <article class="expertise-slide" id="product-school" tabindex="-1">
                                         <div class="expertise-visual">
                                             <img src="../images/about/product-stationery.jpg"
                                                  alt=""
@@ -297,7 +294,7 @@
                                         </div>
                                     </article>
 
-                                    <article class="expertise-slide">
+                                    <article class="expertise-slide" id="product-office" tabindex="-1">
                                         <div class="expertise-visual">
                                             <img src="../images/about/product-office-reference.jpg"
                                                  alt=""
@@ -365,7 +362,7 @@
                             <p class="products-panel-label">其他类别</p>
                             <div class="products-mobile-intro"><h3>更多可采购产品</h3><p>我们与值得信赖的制造商合作，采购涵盖多种品类的产品。</p></div>
                             <div class="other-categories-grid">
-                                <article class="other-category-card">
+                                <article class="other-category-card" id="product-textile" tabindex="-1">
                                     <div class="other-category-visual">
                                         <img src="../images/about/product-textiles.jpg" alt="" width="900" height="600" loading="lazy">
                                     </div>
@@ -378,7 +375,7 @@
                                         <span class="other-category-arrow" aria-hidden="true">→</span>
                                     </div>
                                 </article>
-                                <article class="other-category-card">
+                                <article class="other-category-card" id="product-pet-supplies" tabindex="-1">
                                     <div class="other-category-visual">
                                         <img src="../images/about/product-pet-supplies-reference.jpg" alt="" width="1536" height="1024" loading="lazy">
                                     </div>
@@ -391,7 +388,7 @@
                                         <span class="other-category-arrow" aria-hidden="true">→</span>
                                     </div>
                                 </article>
-                                <article class="other-category-card">
+                                <article class="other-category-card" id="product-accessories" tabindex="-1">
                                     <div class="other-category-visual">
                                         <img src="../images/about/product-jewellery.jpg" alt="" width="900" height="600" loading="lazy">
                                     </div>
@@ -404,7 +401,7 @@
                                         <span class="other-category-arrow" aria-hidden="true">→</span>
                                     </div>
                                 </article>
-                                <article class="other-category-card">
+                                <article class="other-category-card" id="product-toys" tabindex="-1">
                                     <div class="other-category-visual">
                                         <img src="../images/about/product-toys.jpg" alt="" width="900" height="600" loading="lazy">
                                     </div>
@@ -420,9 +417,22 @@
                             </div>
                         </div>
                     </div>
-                </div>
+<aside class="products-help-card" aria-label="产品采购协助">
+                            <span class="products-help-icon" aria-hidden="true">
+                                <svg viewBox="0 0 48 48" focusable="false">
+                                    <path d="m8 26 7-7 8 3 8-3 9 8-7 7-8-5-6 5Z"></path>
+                                    <path d="m8 26-4-4 8-9 7 5M40 27l4-4-8-9-7 5M18 31l4 4M23 29l5 4M28 27l5 4"></path>
+                                </svg>
+                            </span>
+                            <span class="products-help-copy">
+                                <strong>没有找到您需要的产品？</strong>
+                                <span>联系我们，我们会协助您采购。</span>
+                                <a href="#contact" data-contact-method="contact_section">联系我们的团队 <span aria-hidden="true">→</span></a>
+                            </span>
+                        </aside>
+</div>
             </div>
-        </section>
+</section>
 
 
  <section id="contact" class="contact-section">
