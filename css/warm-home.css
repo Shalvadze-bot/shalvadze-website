@@ -582,3 +582,18 @@
   .warm-home-page #products .expertise-visual { aspect-ratio: 2.35 / 1; }
   .warm-home-page #products .expertise-slide-copy p { font-size: 12px; line-height: 1.3; }
 }
+
+@media (max-width: 700px) {
+  .warm-home-page #products .products-subcategory-heading {
+    display: block;
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+  .warm-home-page #products .expertise-subcategories {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .warm-home-page #products .subcategory-group { padding: 14px; }
+  .warm-home-page #products .subcategory-items { margin-top: 10px; }
+}
