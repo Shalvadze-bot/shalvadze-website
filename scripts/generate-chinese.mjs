@@ -26,6 +26,19 @@ const commonTranslations = new Map([
 
 const pageTranslations = {
     "index.html": new Map([
+        ["Products we source", "我们采购的产品"],
+        ["Small essentials.<br>Big possibilities.", "小小日常用品，<br>无限商业可能。"],
+        ["From PP plastic stationery to everyday product categories. Find the right starting point for your next sourcing request.", "从 PP 塑料文具到各类日常用品，为您的下一个采购需求找到合适的起点。"],
+        ["School<br>产品", "学校用品"],
+        ["Office<br>产品", "办公用品"],
+        ["Folders, notebooks,<br>pencil cases &amp; more.", "文件夹、笔记本、<br>笔袋及更多用品。"],
+        ["Files, organizers,<br>desk accessories &amp; more.", "文件、收纳用品、<br>桌面配件及更多。"],
+        ["Request school products sourcing", "提交采购需求"],
+        ["Request office products sourcing", "提交采购需求"],
+        ["Request textile sourcing", "提交采购需求"],
+        ["Request pet supplies sourcing", "提交采购需求"],
+        ["Request accessories sourcing", "提交采购需求"],
+        ["Request toys sourcing", "提交采购需求"],
         ["HOW CAN WE HELP?", "我们能如何帮助您？"],
         ["Tell us what you’re working on. Send a product request, start a conversation, or reach us directly by email.", "告诉我们您正在开展的业务。提交产品需求、与我们聊聊，或直接通过电子邮件联系我们。"],
         ["Quick questions?<br>Drop us a message<br>and we’ll get back to you.", "有简单问题？<br>给我们留言，<br>我们会与您联系。"],

@@ -46,6 +46,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600;700&family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css?v=20260903-mobile-nav-reference">
     <link rel="stylesheet" href="../css/warm-home.css?v=20260905-hero-ctas">
+    <link rel="stylesheet" href="../css/category-index.css?v=20261017">
 </head>
 
 <body id="top" class="warm-home-page">
@@ -202,223 +203,106 @@
             </div>
         </section>
 
-        <section id="products" class="products-section" aria-labelledby="products-title">
-            <div class="products-container">
-                <div class="products-layout">
-                    <div class="products-overview">
-                        <p class="products-eyebrow">我们采购的产品</p>
-                        <h2 id="products-title"><span class="products-desktop-title">我们为您的业务<br>采购哪些产品</span><span class="products-mobile-intro">为您的业务<br>采购优质产品</span></h2>
-                        <p class="products-description">我们专注于 PP 塑料文具，也从中国可靠的制造商采购多种优质产品。</p>
-
-                        <div class="product-selectors" role="tablist" aria-label="产品类别">
-                            <button class="product-selector is-active"
-                                    id="products-tab-expertise"
-                                    aria-label="我们的专长"
-                                    type="button"
-                                    role="tab"
-                                    aria-selected="true"
-                                    aria-controls="products-panel-expertise"
-                                    data-products-panel="expertise">
-                                <span class="product-selector-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 48 48" focusable="false">
-                                        <path d="m24 6 4.3 4.3 6-.2.2 6L39 20l-4.5 3.9-.2 6-6-.2L24 34l-4.3-4.3-6 .2-.2-6L9 20l4.5-3.9.2-6 6 .2Z"></path>
-                                        <path d="m19.5 20 3 3 6-6M18 31l-2 9 8-4 8 4-2-9"></path>
-                                    </svg>
-                                </span>
-                                <span class="product-selector-copy">
-                                    <span class="product-selector-label">我们的专长</span>
-                                    <span class="product-selector-subtitle">PP 塑料文具</span>
-                                    <span class="product-selector-action">查看产品 <span aria-hidden="true">→</span></span>
-                                </span>
-                                <span class="product-selector-arrow" aria-hidden="true">→</span>
-                            </button>
-                            <button class="product-selector"
-                                    id="products-tab-other"
-                                    aria-label="其他品类"
-                                    type="button"
-                                    role="tab"
-                                    aria-selected="false"
-                                    aria-controls="products-panel-other"
-                                    tabindex="-1"
-                                    data-products-panel="other">
-                                <span class="product-selector-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 48 48" focusable="false">
-                                        <rect x="7" y="7" width="13" height="13" rx="2"></rect>
-                                        <rect x="28" y="7" width="13" height="13" rx="2"></rect>
-                                        <rect x="7" y="28" width="13" height="13" rx="2"></rect>
-                                        <rect x="28" y="28" width="13" height="13" rx="2"></rect>
-                                    </svg>
-                                </span>
-                                <span class="product-selector-copy">
-                                    <span class="product-selector-label">其他类别</span>
-                                    <span class="product-selector-subtitle">更多可采购产品</span>
-                                    <span class="product-selector-action">浏览类别 <span aria-hidden="true">→</span></span>
-                                </span>
-                                <span class="product-selector-arrow" aria-hidden="true">→</span>
-                            </button>
-                        </div>
-
-                        <aside class="products-help-card" aria-label="产品采购协助">
-                            <span class="products-help-icon" aria-hidden="true">
-                                <svg viewBox="0 0 48 48" focusable="false">
-                                    <path d="m8 26 7-7 8 3 8-3 9 8-7 7-8-5-6 5Z"></path>
-                                    <path d="m8 26-4-4 8-9 7 5M40 27l4-4-8-9-7 5M18 31l4 4M23 29l5 4M28 27l5 4"></path>
-                                </svg>
-                            </span>
-                            <span class="products-help-copy">
-                                <strong>没有找到您需要的产品？</strong>
-                                <span>联系我们，我们会协助您采购。</span>
-                                <a href="#contact" data-contact-method="contact_section">联系我们的团队 <span aria-hidden="true">→</span></a>
-                            </span>
-                        </aside>
+        <section id="products" class="products-section category-index" aria-labelledby="products-title">
+            <div class="category-index-container">
+                <div class="category-index-headline">
+                    <div><p class="category-index-kicker">我们采购的产品</p><h2 id="products-title">小小日常用品，<br>无限商业可能。</h2></div>
+                    <p class="category-index-intro">从 PP 塑料文具到各类日常用品，为您的下一个采购需求找到合适的起点。</p>
+                </div>
+                <div class="category-index-group" aria-labelledby="category-group-0">
+                    <h3 class="category-index-kicker" id="category-group-0">我们的专长</h3>
+                    <div class="category-index-grid category-index-grid--expertise">
+                        <details class="category-index-card category-index-card--1" id="product-school">
+                            <summary>
+                                <span class="category-index-number">01 / 我们的专长</span>
+                                <h4>学校用品</h4>
+                                <p class="category-index-teaser">文件夹、笔记本、<br>笔袋及更多用品。</p>
+                                <img src="../images/about/product-stationery.jpg"
+                                                 alt=""
+                                                 width="1200"
+                                                 height="800"
+                                                 loading="lazy">
+                                <span class="category-index-go"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span>
+                            </summary>
+                            <div class="category-index-detail">
+                                <p>PP 塑料文件夹、资料袋、笔记本、笔袋、直尺及其他常用学校用品。</p>
+                                <ul><li>PP 文件夹</li><li>资料袋</li><li>笔记本</li><li>笔袋</li><li>直尺</li><li>学习套装</li></ul>
+                                <p>多种款式的实用 PP 学校用品，方便日常分类与整理。</p>
+                                <a href="product-request.html" data-product-request-link>提交采购需求 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></a>
+                            </div>
+                        </details>
+                        <details class="category-index-card category-index-card--2" id="product-office">
+                            <summary>
+                                <span class="category-index-number">02 / 我们的专长</span>
+                                <h4>办公用品</h4>
+                                <p class="category-index-teaser">文件、收纳用品、<br>桌面配件及更多。</p>
+                                <img src="../images/about/product-office-reference.jpg"
+                                                 alt=""
+                                                 width="1200"
+                                                 height="800"
+                                                 loading="lazy">
+                                <span class="category-index-go"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span>
+                            </summary>
+                            <div class="category-index-detail">
+                                <p>PP 文件夹、资料收纳袋、整理用品、写字板及其他办公配件。</p>
+                                <ul><li>文件夹</li><li>资料收纳袋</li><li>整理用品</li><li>写字板</li><li>桌面配件</li><li>收纳盒</li></ul>
+                                <p>实用的办公用品，帮助您更清晰地归档、收纳和整理工作空间。</p>
+                                <a href="product-request.html" data-product-request-link>提交采购需求 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></a>
+                            </div>
+                        </details>
                     </div>
-
-                    <div class="products-content">
-                        <div class="products-panel is-active"
-                             id="products-panel-expertise"
-                             role="tabpanel"
-                             aria-labelledby="products-tab-expertise"
-                            data-products-content="expertise">
-                            <p class="products-panel-label">我们的专长</p>
-                            <div class="products-mobile-intro"><h3>学校与办公用品</h3><p>为教育和现代办公场所提供 PP 塑料文具解决方案。</p></div>
-                            <div class="expertise-viewport">
-                                    <article class="expertise-slide">
-                                        <div class="expertise-visual">
-                                            <img src="../images/about/product-stationery.jpg"
-                                                 alt=""
-                                                 width="1200"
-                                                 height="800"
-                                                 loading="lazy">
-                                        </div>
-                                        <div class="expertise-slide-copy">
-                                            <span>01 / 我们的专长</span>
-                                            <h3>学校用品</h3>
-                                            <p>PP 塑料文件夹、资料袋、笔记本、笔袋、直尺及其他常用学校用品。</p>
-                                        </div>
-                                    </article>
-
-                                    <article class="expertise-slide">
-                                        <div class="expertise-visual">
-                                            <img src="../images/about/product-office-reference.jpg"
-                                                 alt=""
-                                                 width="1200"
-                                                 height="800"
-                                                 loading="lazy">
-                                        </div>
-                                        <div class="expertise-slide-copy">
-                                            <span>02 / 我们的专长</span>
-                                            <h3>办公用品</h3>
-                                            <p>PP 文件夹、资料收纳袋、整理用品、写字板及其他办公配件。</p>
-                                        </div>
-                                    </article>
+                </div>
+                <div class="category-index-group" aria-labelledby="category-group-2">
+                    <h3 class="category-index-kicker" id="category-group-2">其他类别</h3>
+                    <div class="category-index-grid">
+                        <details class="category-index-card category-index-card--3" id="product-textile">
+                            <summary>
+                                <span class="category-index-number">03</span>
+                                <h4>纺织品</h4>
+                                <span class="category-index-go"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span>
+                            </summary>
+                            <div class="category-index-detail">
+                                <img src="../images/about/product-textiles.jpg" alt="" width="900" height="600" loading="lazy">
+                                <p>满足不同业务需求的优质面料与纺织产品。</p>
+                                <a href="product-request.html" data-product-request-link>提交采购需求 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></a>
                             </div>
-
-                            <div class="products-subcategory-heading">
-                                <p class="products-subcategory-label">浏览子类别</p>
+                        </details>
+                        <details class="category-index-card category-index-card--4" id="product-pet-supplies">
+                            <summary>
+                                <span class="category-index-number">04</span>
+                                <h4>宠物用品</h4>
+                                <span class="category-index-go"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span>
+                            </summary>
+                            <div class="category-index-detail">
+                                <img src="../images/about/product-pet-supplies-reference.jpg" alt="" width="1536" height="1024" loading="lazy">
+                                <p>适合宠物及宠物相关企业的实用可靠用品。</p>
+                                <a href="product-request.html" data-product-request-link>提交采购需求 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></a>
                             </div>
-                            <div class="expertise-subcategories">
-                                <div class="subcategory-group">
-                                    <div class="subcategory-heading-row">
-                                        <span class="subcategory-heading-icon" aria-hidden="true">
-                                            <svg viewBox="0 0 32 32" focusable="false"><path d="m3 11 13-6 13 6-13 6Zm5 3v8c5 4 11 4 16 0v-8M28 12v10"></path></svg>
-                                        </span>
-                                        <h4>学校用品</h4>
-                                    </div>
-                                    <ul class="subcategory-items">
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 6h8l2 3h8v14H5Z"></path></svg></span><span>PP 文件夹</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M7 4h10l5 5v15H7Zm10 0v6h5M10 14h9M10 18h9"></path></svg></span><span>资料袋</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="7" y="4" width="15" height="20" rx="2"></rect><path d="M10 4v20M13 9h6M13 13h6"></path></svg></span><span>笔记本</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m6 20 13-13 3 3-13 13-4 1Zm11-11 3 3"></path></svg></span><span>笔袋</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m5 21 16-16 3 3L8 24Zm5-2 2 2m1-6 2 2m1-6 2 2"></path></svg></span><span>直尺</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="m5 9 9-5 9 5-9 5Zm0 0v11l9 4 9-4V9M14 14v10"></path></svg></span><span>学习套装</span></li>
-                                    </ul>
-                                    <p class="subcategory-description">多种款式的实用 PP 学校用品，方便日常分类与整理。</p>
-                                    <span class="subcategory-future-link">查看全部学校用品 <span aria-hidden="true">→</span></span>
-                                </div>
-                                <div class="subcategory-group">
-                                    <div class="subcategory-heading-row">
-                                        <span class="subcategory-heading-icon" aria-hidden="true">
-                                            <svg viewBox="0 0 32 32" focusable="false"><rect x="4" y="10" width="24" height="16" rx="2"></rect><path d="M11 10V6h10v4M4 16h24M13 16v3h6v-3"></path></svg>
-                                        </span>
-                                        <h4>办公用品</h4>
-                                    </div>
-                                    <ul class="subcategory-items">
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 6h8l2 3h8v14H5Z"></path></svg></span><span>文件夹</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M7 4h10l5 5v15H7Zm10 0v6h5M10 14h9M10 18h9"></path></svg></span><span>资料收纳袋</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="4" y="7" width="20" height="16" rx="2"></rect><path d="M4 12h20M10 7v16M18 7v16"></path></svg></span><span>整理用品</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><rect x="6" y="5" width="16" height="20" rx="2"></rect><path d="M11 5V3h6v2M10 11h8M10 15h8"></path></svg></span><span>写字板</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 8h18v15H5Zm3-4h12v4H8M9 13h10M9 17h10"></path></svg></span><span>桌面配件</span></li>
-                                        <li><span class="subcategory-item-icon" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M5 9h18v14H5Zm2-4h14l2 4H5Zm5 9h4"></path></svg></span><span>收纳盒</span></li>
-                                    </ul>
-                                    <p class="subcategory-description">实用的办公用品，帮助您更清晰地归档、收纳和整理工作空间。</p>
-                                    <span class="subcategory-future-link">查看全部办公用品 <span aria-hidden="true">→</span></span>
-                                </div>
+                        </details>
+                        <details class="category-index-card category-index-card--5" id="product-accessories">
+                            <summary>
+                                <span class="category-index-number">05</span>
+                                <h4>配饰</h4>
+                                <span class="category-index-go"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span>
+                            </summary>
+                            <div class="category-index-detail">
+                                <img src="../images/about/product-jewellery.jpg" alt="" width="900" height="600" loading="lazy">
+                                <p>多种设计风格的时尚与生活配饰。</p>
+                                <a href="product-request.html" data-product-request-link>提交采购需求 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></a>
                             </div>
-                        </div>
-
-                        <div class="products-panel"
-                             id="products-panel-other"
-                             role="tabpanel"
-                             aria-labelledby="products-tab-other"
-                             data-products-content="other"
-                             hidden>
-                            <p class="products-panel-label">其他类别</p>
-                            <div class="products-mobile-intro"><h3>更多可采购产品</h3><p>我们与值得信赖的制造商合作，采购涵盖多种品类的产品。</p></div>
-                            <div class="other-categories-grid">
-                                <article class="other-category-card">
-                                    <div class="other-category-visual">
-                                        <img src="../images/about/product-textiles.jpg" alt="" width="900" height="600" loading="lazy">
-                                    </div>
-                                    <div class="other-category-copy">
-                                        <div class="other-category-title">
-                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m11 6-7 5 4 7 4-2v11h8V16l4 2 4-7-7-5c-1 4-9 4-10 0Z"></path></svg></span>
-                                            <h3>纺织品</h3>
-                                        </div>
-                                        <p>满足不同业务需求的优质面料与纺织产品。</p>
-                                        <span class="other-category-arrow" aria-hidden="true">→</span>
-                                    </div>
-                                </article>
-                                <article class="other-category-card">
-                                    <div class="other-category-visual">
-                                        <img src="../images/about/product-pet-supplies-reference.jpg" alt="" width="1536" height="1024" loading="lazy">
-                                    </div>
-                                    <div class="other-category-copy">
-                                        <div class="other-category-title">
-                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="9" cy="10" r="3"></circle><circle cx="16" cy="7" r="3"></circle><circle cx="23" cy="10" r="3"></circle><path d="M8 23c1-7 5-11 8-11s7 4 8 11c-4 4-12 4-16 0Z"></path></svg></span>
-                                            <h3>宠物用品</h3>
-                                        </div>
-                                        <p>适合宠物及宠物相关企业的实用可靠用品。</p>
-                                        <span class="other-category-arrow" aria-hidden="true">→</span>
-                                    </div>
-                                </article>
-                                <article class="other-category-card">
-                                    <div class="other-category-visual">
-                                        <img src="../images/about/product-jewellery.jpg" alt="" width="900" height="600" loading="lazy">
-                                    </div>
-                                    <div class="other-category-copy">
-                                        <div class="other-category-title">
-                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 10h18l2 17H5Zm5 0V7c0-5 8-5 8 0v3"></path></svg></span>
-                                            <h3>配饰</h3>
-                                        </div>
-                                        <p>多种设计风格的时尚与生活配饰。</p>
-                                        <span class="other-category-arrow" aria-hidden="true">→</span>
-                                    </div>
-                                </article>
-                                <article class="other-category-card">
-                                    <div class="other-category-visual">
-                                        <img src="../images/about/product-toys.jpg" alt="" width="900" height="600" loading="lazy">
-                                    </div>
-                                    <div class="other-category-copy">
-                                        <div class="other-category-title">
-                                            <span class="other-category-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="4" y="16" width="11" height="11" rx="2"></rect><rect x="13" y="7" width="11" height="20" rx="2"></rect><circle cx="25" cy="20" r="5"></circle><path d="M7 21h5M9.5 18.5v5M16 12h5"></path></svg></span>
-                                            <h3>玩具</h3>
-                                        </div>
-                                        <p>多种类别、安全有趣的儿童玩具。</p>
-                                        <span class="other-category-arrow" aria-hidden="true">→</span>
-                                    </div>
-                                </article>
+                        </details>
+                        <details class="category-index-card category-index-card--6" id="product-toys">
+                            <summary>
+                                <span class="category-index-number">06</span>
+                                <h4>玩具</h4>
+                                <span class="category-index-go"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span>
+                            </summary>
+                            <div class="category-index-detail">
+                                <img src="../images/about/product-toys.jpg" alt="" width="900" height="600" loading="lazy">
+                                <p>多种类别、安全有趣的儿童玩具。</p>
+                                <a href="product-request.html" data-product-request-link>提交采购需求 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></a>
                             </div>
-                        </div>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -637,6 +521,7 @@
 <script src="../js/language.js?v=20260830"></script>
 <script src="../js/script.js?v=20260905-hero-ctas"></script>
 
+<script src="../js/category-index.js?v=20261017"></script>
 </body>
 
 </html>
